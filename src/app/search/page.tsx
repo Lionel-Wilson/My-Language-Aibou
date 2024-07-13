@@ -69,7 +69,7 @@ export default function Page() {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col ">
           {/* Navbar */}
-          <div className="navbar bg-primary text-primary-content w-full ">
+          <div className="navbar bg-primary text-primary-content w-screen sm:w-full ">
             <div className="flex-none lg:hidden">
               <label
                 htmlFor="my-drawer-3"
@@ -108,15 +108,8 @@ export default function Page() {
           </div>
 
           {/* Page content here */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "10em",
-              marginBottom: "10em",
-            }}
-          >
-            <div role="tablist" className="tabs tabs-lifted tabs-lg w-2/3">
+          <div className="  min-[410px]:flex min-[410px]:justify-center ml-6 min-[360px]:ml-11 min-[375px]:ml-14 min-[390px]:ml-16 min-[410px]:ml-0 my-20 sm:my-20 md:my-40">
+            <div role="tablist" className="tabs tabs-lifted  sm:tabs-lg  w-2/3">
               <input
                 type="radio"
                 name="my_tabs_2"
@@ -126,35 +119,35 @@ export default function Page() {
               />
               <div
                 role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs"
               >
                 <form action={expressionAnalysisAction}>
                   <div>
                     <label className="form-control">
                       <div className="label">
-                        <span className="label-text">
+                        <span className="label-text text-xs min-[410px]:text-sm">
                           Type a Sentence to Explore Its Meaning and Grammar
                         </span>
                       </div>
                       <textarea
                         name="phrase"
-                        className="textarea textarea-bordered h-24"
+                        className="textarea textarea-bordered textarea-xs min-[410px]:textarea-md w-full max-w-xs sm:h-24 "
                         placeholder="Paste your phrase here..."
                       ></textarea>
                       <div className="label"></div>
                     </label>
                   </div>
 
-                  <div className="flex justify-items-start">
-                    <div className="mr-20">
-                      <div className="label">
-                        <span className="label-text">
+                  <div className="flex flex-wrap justify-items-start">
+                    <div>
+                      <div className="label w-56">
+                        <span className="label-text text-xs min-[410px]:text-sm">
                           Select tier (Determines response quality)
                         </span>
                       </div>
                       <select
                         name="tier"
-                        className="select select-primary w-full max-w-md"
+                        className="select select-primary w-full select-xs min-[410px]:select-sm  max-w-xs  sm:max-w-md "
                       >
                         <option defaultValue="true" value="Basic">
                           Basic
@@ -162,15 +155,15 @@ export default function Page() {
                         <option value="Premium">Premium</option>
                       </select>
                     </div>
-                    <div className="mr-20">
-                      <div className="label">
-                        <span className="label-text">
+                    <div>
+                      <div className="label w-56">
+                        <span className="label-text text-xs min-[410px]:text-sm">
                           Select your native language
                         </span>
                       </div>
                       <select
                         name="nativeLanguage"
-                        className="select select-primary w-full max-w-md"
+                        className="select select-primary w-full select-xs min-[410px]:select-sm  max-w-xs  sm:max-w-md"
                       >
                         <option value="Japanese">Japanese</option>
                         <option value="Korean">Korean</option>
@@ -185,14 +178,14 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="label">
-                        <span className="label-text">
+                        <span className="label-text text-xs min-[410px]:text-sm">
                           Select your target language (Must match phrase
                           language)
                         </span>
                       </div>
                       <select
                         name="targetLanguage"
-                        className="select select-primary w-full max-w-lg"
+                        className="select select-primary w-full select-xs min-[410px]:select-sm max-w-xs sm:max-w-lg"
                       >
                         <option value="Japanese">Japanese</option>
                         <option value="Korean">Korean</option>
@@ -210,7 +203,7 @@ export default function Page() {
                     <input
                       type="submit"
                       value="Translate and Learn"
-                      className="btn btn-wide btn-primary"
+                      className="btn btn-xs min-[410px]:btn-sm sm:btn-wide btn-primary"
                     />
                   </div>
                 </form>
@@ -233,21 +226,21 @@ export default function Page() {
               />
               <div
                 role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs"
               >
                 <form action={dictionaryAction}>
                   <div>
                     <label className="form-control">
                       <div className="label">
-                        <span className="label-text">
+                        <span className="label-text text-xs min-[410px]:text-sm">
                           See a word&apos;s definition in your native language
                         </span>
                       </div>
-                      <label className="input input-bordered flex items-center gap-2">
+                      <label className="input input-bordered flex items-center gap-2 input-xs min-[410px]:input-sm w-full max-w-xs">
                         <input
                           type="text"
                           name="word"
-                          className="grow"
+                          className="grow "
                           placeholder="Search"
                         />
                         <svg
@@ -263,16 +256,16 @@ export default function Page() {
                           />
                         </svg>
                       </label>
-                      <div className="flex justify-items-start mt-5">
-                        <div className="mr-20">
-                          <div className="label">
-                            <span className="label-text">
+                      <div className="flex justify-items-start flex-wrap sm:flex-nowrap mt-2 sm:mt-5">
+                        <div>
+                          <div className="label w-56">
+                            <span className="label-text text-xs min-[410px]:text-sm">
                               Select tier (Determines response quality)
                             </span>
                           </div>
                           <select
                             name="tier"
-                            className="select select-primary w-full max-w-md"
+                            className="select select-primary select-xs min-[410px]:select-sm w-full max-w-xs"
                           >
                             <option defaultValue="true" value="Basic">
                               Basic
@@ -280,15 +273,15 @@ export default function Page() {
                             <option value="Premium">Premium</option>
                           </select>
                         </div>
-                        <div className="mr-20">
-                          <div className="label">
-                            <span className="label-text">
+                        <div>
+                          <div className="label w-56">
+                            <span className="label-text text-xs min-[410px]:text-sm">
                               Select your native language
                             </span>
                           </div>
                           <select
                             name="nativeLanguage"
-                            className="select select-primary w-full max-w-md"
+                            className="select select-primary select-xs min-[410px]:select-sm w-full max-w-xs"
                           >
                             <option value="Japanese">Japanese</option>
                             <option defaultValue="true" value="Korean">
@@ -306,7 +299,7 @@ export default function Page() {
                         <input
                           type="submit"
                           value="Define Word"
-                          className="btn btn-wide btn-primary"
+                          className="btn btn-xs min-[410px]:btn-sm sm:btn-wide btn-primary"
                         />
                       </div>
                     </label>
