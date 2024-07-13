@@ -28,6 +28,7 @@ export default function Home() {
           <img
             src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
             className="max-w-sm rounded-lg shadow-2xl"
+            title="spiderman2"
           />
           <div>
             <h1 className="text-5xl font-bold">
@@ -49,6 +50,7 @@ export default function Home() {
           <img
             src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
             className="max-w-sm rounded-lg shadow-2xl"
+            title="spiderman2"
           />
           <div>
             <h1 className="text-5xl font-bold">
