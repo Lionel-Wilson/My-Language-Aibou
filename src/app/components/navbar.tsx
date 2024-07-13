@@ -20,6 +20,7 @@ export default function Navbar() {
           <button className="btn btn-primary">Search</button>
         </Link>
       </div>*/}
+
       <div className="navbar bg-primary text-primary-content">
         <div className="navbar-start">
           <div className="dropdown">
@@ -47,7 +48,7 @@ export default function Navbar() {
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/search">Search</Link>
+                <Link href="/search">Language Analysis Hub</Link>
               </li>
             </ul>
           </div>

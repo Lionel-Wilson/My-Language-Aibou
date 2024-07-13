@@ -3,20 +3,9 @@ import { useFormState } from "react-dom";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import { analyseExpression, defineWord } from "./actions";
+import Link from "next/link";
 
 export default function Page() {
-  // Function to format the API response into paragraphs
-  const formatApiResponse = (text: string) => {
-    // Split the response into meaningful sections
-    const sections = text.split(/\.(?!\d)/); // Split by periods that are not followed by a digit
-
-    return sections.map((section, index) => (
-      <p key={index} className="mb-4">
-        {section.trim()}.
-      </p>
-    ));
-  };
-
   // action is kinda enhanced version of
   // we are returning the an object with message key. set the initial
   const [wordDefinition, dictionaryAction] = useFormState(defineWord, {
@@ -28,6 +17,18 @@ export default function Page() {
       expressionAnswer: "",
     }
   );
+
+  // Function to format the API response into paragraphs
+  const formatApiResponse = (text: string) => {
+    // Split the response into meaningful sections
+    const sections = text.split(/\.(?!\d)/); // Split by periods that are not followed by a digit
+
+    return sections.map((section, index) => (
+      <p key={index} className="mb-4">
+        {section.trim()}.
+      </p>
+    ));
+  };
 
   const formatWordDefinition = (text: string) => {
     const paragraphs = text.split("\n\n");
@@ -64,162 +65,87 @@ export default function Page() {
 
   return (
     <>
-      <Navbar></Navbar>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "10em",
-          marginBottom: "10em",
-        }}
-      >
-        <div role="tablist" className="tabs tabs-lifted tabs-lg w-2/3">
-          <input
-            type="radio"
-            name="my_tabs_2"
-            role="tab"
-            className="tab"
-            aria-label="Analyzer"
-          />
-          <div
-            role="tabpanel"
-            className="tab-content bg-base-100 border-base-300 rounded-box p-6"
-          >
-            <form action={expressionAnalysisAction}>
-              <div>
-                <label className="form-control">
-                  <div className="label">
-                    <span className="label-text">
-                      Type a Sentence to Explore Its Meaning and Grammar
-                    </span>
-                  </div>
-                  <textarea
-                    name="phrase"
-                    className="textarea textarea-bordered h-24"
-                    placeholder="Paste your phrase here..."
-                  ></textarea>
-                  <div className="label"></div>
-                </label>
-              </div>
-
-              <div className="flex justify-items-start">
-                <div className="mr-20">
-                  <div className="label">
-                    <span className="label-text">
-                      Select tier (Determines response quality)
-                    </span>
-                  </div>
-                  <select
-                    name="tier"
-                    className="select select-primary w-full max-w-md"
-                  >
-                    <option defaultValue="true" value="Basic">
-                      Basic
-                    </option>
-                    <option value="Premium">Premium</option>
-                  </select>
-                </div>
-                <div className="mr-20">
-                  <div className="label">
-                    <span className="label-text">
-                      Select your native language
-                    </span>
-                  </div>
-                  <select
-                    name="nativeLanguage"
-                    className="select select-primary w-full max-w-md"
-                  >
-                    <option value="Japanese">Japanese</option>
-                    <option value="Korean">Korean</option>
-                    <option defaultValue="true" value="English">
-                      English
-                    </option>
-                    <option value="Mandarin">Mandarin</option>
-                    <option value="Spanish">Spanish</option>
-                    <option value="French">French</option>
-                    <option value="Patois">Patois</option>
-                  </select>
-                </div>
-                <div>
-                  <div className="label">
-                    <span className="label-text">
-                      Select your target language (Must match phrase language)
-                    </span>
-                  </div>
-                  <select
-                    name="targetLanguage"
-                    className="select select-primary w-full max-w-lg"
-                  >
-                    <option value="Japanese">Japanese</option>
-                    <option value="Korean">Korean</option>
-                    <option defaultValue="true" value="English">
-                      English
-                    </option>
-                    <option value="Mandarin">Mandarin</option>
-                    <option value="Spanish">Spanish</option>
-                    <option value="French">French</option>
-                    <option value="Patois">Patois</option>
-                  </select>
-                </div>
-              </div>
-              <div className="mt-5">
-                <input
-                  type="submit"
-                  value="Translate and Learn"
-                  className="btn btn-wide btn-primary"
-                />
-              </div>
-            </form>
-            <div>
-              {expressionAnaylsis?.expressionAnswer ? (
-                <div className="mt-10">
-                  {formatApiResponse(expressionAnaylsis.expressionAnswer)}
-                </div>
-              ) : null}
+      <div className="drawer ">
+        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content flex flex-col ">
+          {/* Navbar */}
+          <div className="navbar bg-primary text-primary-content w-full ">
+            <div className="flex-none lg:hidden">
+              <label
+                htmlFor="my-drawer-3"
+                aria-label="open sidebar"
+                className="btn btn-square btn-ghost"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block h-6 w-6 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </label>
+            </div>
+            <div className="mx-2 flex-1 px-2 text-xl font-bold">
+              My Language Aibou
+            </div>
+            <div className="hidden flex-none lg:block">
+              <ul className="menu menu-horizontal">
+                {/* Navbar menu content here */}
+                <li className="font-bold">
+                  <Link href="/">Home</Link>
+                </li>
+                <li className="font-bold">
+                  <Link href="/search">Language Analysis Hub</Link>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <input
-            type="radio"
-            name="my_tabs_2"
-            role="tab"
-            className="tab"
-            aria-label="Dictionary"
-            defaultChecked
-          />
+          {/* Page content here */}
           <div
-            role="tabpanel"
-            className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "10em",
+              marginBottom: "10em",
+            }}
           >
-            <form action={dictionaryAction}>
-              <div>
-                <label className="form-control">
-                  <div className="label">
-                    <span className="label-text">
-                      See a word&apos;s definition in your native language
-                    </span>
+            <div role="tablist" className="tabs tabs-lifted tabs-lg w-2/3">
+              <input
+                type="radio"
+                name="my_tabs_2"
+                role="tab"
+                className="tab"
+                aria-label="Analyzer"
+              />
+              <div
+                role="tabpanel"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+              >
+                <form action={expressionAnalysisAction}>
+                  <div>
+                    <label className="form-control">
+                      <div className="label">
+                        <span className="label-text">
+                          Type a Sentence to Explore Its Meaning and Grammar
+                        </span>
+                      </div>
+                      <textarea
+                        name="phrase"
+                        className="textarea textarea-bordered h-24"
+                        placeholder="Paste your phrase here..."
+                      ></textarea>
+                      <div className="label"></div>
+                    </label>
                   </div>
-                  <label className="input input-bordered flex items-center gap-2">
-                    <input
-                      type="text"
-                      name="word"
-                      className="grow"
-                      placeholder="Search"
-                    />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      className="h-4 w-4 opacity-70"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </label>
-                  <div className="flex justify-items-start mt-5">
+
+                  <div className="flex justify-items-start">
                     <div className="mr-20">
                       <div className="label">
                         <span className="label-text">
@@ -247,10 +173,32 @@ export default function Page() {
                         className="select select-primary w-full max-w-md"
                       >
                         <option value="Japanese">Japanese</option>
-                        <option defaultValue="true" value="Korean">
-                          Korean
+                        <option value="Korean">Korean</option>
+                        <option defaultValue="true" value="English">
+                          English
                         </option>
-                        <option value="English">English</option>
+                        <option value="Mandarin">Mandarin</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="French">French</option>
+                        <option value="Patois">Patois</option>
+                      </select>
+                    </div>
+                    <div>
+                      <div className="label">
+                        <span className="label-text">
+                          Select your target language (Must match phrase
+                          language)
+                        </span>
+                      </div>
+                      <select
+                        name="targetLanguage"
+                        className="select select-primary w-full max-w-lg"
+                      >
+                        <option value="Japanese">Japanese</option>
+                        <option value="Korean">Korean</option>
+                        <option defaultValue="true" value="English">
+                          English
+                        </option>
                         <option value="Mandarin">Mandarin</option>
                         <option value="Spanish">Spanish</option>
                         <option value="French">French</option>
@@ -261,24 +209,139 @@ export default function Page() {
                   <div className="mt-5">
                     <input
                       type="submit"
-                      value="Define Word"
+                      value="Translate and Learn"
                       className="btn btn-wide btn-primary"
                     />
                   </div>
-                </label>
-              </div>
-            </form>
-            <div>
-              {wordDefinition?.wordAnswer ? (
-                <div className="mt-10">
-                  {formatWordDefinition(wordDefinition.wordAnswer)}
+                </form>
+                <div>
+                  {expressionAnaylsis?.expressionAnswer ? (
+                    <div className="mt-10">
+                      {formatApiResponse(expressionAnaylsis.expressionAnswer)}
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
+              </div>
+
+              <input
+                type="radio"
+                name="my_tabs_2"
+                role="tab"
+                className="tab"
+                aria-label="Dictionary"
+                defaultChecked
+              />
+              <div
+                role="tabpanel"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+              >
+                <form action={dictionaryAction}>
+                  <div>
+                    <label className="form-control">
+                      <div className="label">
+                        <span className="label-text">
+                          See a word&apos;s definition in your native language
+                        </span>
+                      </div>
+                      <label className="input input-bordered flex items-center gap-2">
+                        <input
+                          type="text"
+                          name="word"
+                          className="grow"
+                          placeholder="Search"
+                        />
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                          className="h-4 w-4 opacity-70"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </label>
+                      <div className="flex justify-items-start mt-5">
+                        <div className="mr-20">
+                          <div className="label">
+                            <span className="label-text">
+                              Select tier (Determines response quality)
+                            </span>
+                          </div>
+                          <select
+                            name="tier"
+                            className="select select-primary w-full max-w-md"
+                          >
+                            <option defaultValue="true" value="Basic">
+                              Basic
+                            </option>
+                            <option value="Premium">Premium</option>
+                          </select>
+                        </div>
+                        <div className="mr-20">
+                          <div className="label">
+                            <span className="label-text">
+                              Select your native language
+                            </span>
+                          </div>
+                          <select
+                            name="nativeLanguage"
+                            className="select select-primary w-full max-w-md"
+                          >
+                            <option value="Japanese">Japanese</option>
+                            <option defaultValue="true" value="Korean">
+                              Korean
+                            </option>
+                            <option value="English">English</option>
+                            <option value="Mandarin">Mandarin</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                            <option value="Patois">Patois</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className="mt-5">
+                        <input
+                          type="submit"
+                          value="Define Word"
+                          className="btn btn-wide btn-primary"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                </form>
+                <div>
+                  {wordDefinition?.wordAnswer ? (
+                    <div className="mt-10">
+                      {formatWordDefinition(wordDefinition.wordAnswer)}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
             </div>
           </div>
+          <Footer></Footer>
+        </div>
+
+        <div className="drawer-side">
+          <label
+            htmlFor="my-drawer-3"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+          <ul className="menu bg-primary text-primary-content min-h-full w-80 p-4">
+            {/* Sidebar content here */}
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/search">Language Analysis Hub</Link>
+            </li>
+          </ul>
         </div>
       </div>
-      <Footer></Footer>
     </>
   );
 }
