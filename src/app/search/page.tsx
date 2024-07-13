@@ -209,7 +209,7 @@ export default function Page() {
                 </form>
                 <div>
                   {expressionAnaylsis?.expressionAnswer ? (
-                    <div className="mt-10">
+                    <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm">
                       {formatApiResponse(expressionAnaylsis.expressionAnswer)}
                     </div>
                   ) : null}
@@ -307,7 +307,7 @@ export default function Page() {
                 </form>
                 <div>
                   {wordDefinition?.wordAnswer ? (
-                    <div className="mt-10">
+                    <div className="mt-10 text-xs min-[410px]:text-sm">
                       {formatWordDefinition(wordDefinition.wordAnswer)}
                     </div>
                   ) : null}
