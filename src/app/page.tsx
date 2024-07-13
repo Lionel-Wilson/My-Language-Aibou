@@ -9,11 +9,14 @@ export default function Home() {
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content text-center">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Hello there</h1>
+            <h1 className="text-5xl font-bold">
+              Say Goodbye to Language Barriers
+            </h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              Effortlessly translate and understand words and phrases in
+              real-time. Whether it's slang, colloquial speech, or formal
+              writing, our AI-powered tool bridges the gap between languages,
+              ensuring clear and accurate communication.
             </p>
             <button className="btn btn-primary">Get Started</button>
           </div>
@@ -27,11 +30,14 @@ export default function Home() {
             className="max-w-sm rounded-lg shadow-2xl"
           />
           <div>
-            <h1 className="text-5xl font-bold">Box Office News!</h1>
+            <h1 className="text-5xl font-bold">
+              200+ Languages Supported for Accurate Translation and Learning
+            </h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              Experience seamless translations and detailed explanations in over
+              200 languages. Our platform caters to your linguistic needs,
+              providing precise translations and cultural context to enhance
+              your understanding and learning journey.
             </p>
             <button className="btn btn-primary">Get Started</button>
           </div>
@@ -45,11 +51,14 @@ export default function Home() {
             className="max-w-sm rounded-lg shadow-2xl"
           />
           <div>
-            <h1 className="text-5xl font-bold">Box Office News!</h1>
+            <h1 className="text-5xl font-bold">
+              Your Ultimate Language Companion
+            </h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              Empower your language learning with our comprehensive tool. From
+              translating and breaking down complex sentences to providing
+              native language explanations, we support solo learners and
+              multilingual enthusiasts alike in mastering any language.
             </p>
             <button className="btn btn-primary">Get Started</button>
           </div>
