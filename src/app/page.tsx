@@ -14,7 +14,7 @@ export default function Home() {
             </h1>
             <p className="py-6">
               Effortlessly translate and understand words and phrases in
-              real-time. Whether it's slang, colloquial speech, or formal
+              real-time. Whether it&apos;s slang, colloquial speech, or formal
               writing, our AI-powered tool bridges the gap between languages,
               ensuring clear and accurate communication.
             </p>

@@ -196,7 +196,7 @@ export default function Page() {
                 <label className="form-control">
                   <div className="label">
                     <span className="label-text">
-                      See a word's definition in your native language
+                      See a word&apos;s definition in your native language
                     </span>
                   </div>
                   <label className="input input-bordered flex items-center gap-2">
