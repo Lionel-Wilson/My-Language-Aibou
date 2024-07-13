@@ -6,8 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "My Language Aibou",
-  description:
-    "The API for the 'My Language Aibou' application. The AI Powered language learning partner",
+  description: "The AI Powered language learning partner",
 };
 
 export const viewport: Viewport = {
