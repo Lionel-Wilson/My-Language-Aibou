@@ -35,7 +35,7 @@ export async function analyseExpression(prevState: any, formData: FormData) {
     return {
       expressionAnswer: null,
       error:
-        "Failed to process your sentence. Please make sure you select the correct sentence language and try again.",
+        "Failed to process your sentence. Please double check your sentence and try again",
     };
   }
 }
