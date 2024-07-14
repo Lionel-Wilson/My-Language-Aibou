@@ -44,7 +44,6 @@ export async function defineWord(prevState: any, formData: FormData) {
   const rawFormData = {
     word: formData.get("word"),
     tier: formData.get("tier"),
-    targetLanguage: "",
     nativeLanguage: formData.get("nativeLanguage"),
   };
 
