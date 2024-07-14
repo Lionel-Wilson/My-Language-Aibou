@@ -100,8 +100,8 @@ export default function Page() {
           </div>
 
           {/* Page content here */}
-          <div className="min-[410px]:flex min-[410px]:justify-center ml-6 min-[360px]:ml-11 min-[375px]:ml-14 min-[390px]:ml-16 min-[410px]:ml-0 sm:ml-8 my-20 md:my-40">
-            <div role="tablist" className="tabs tabs-lifted w-2/3">
+          <div className="min-[410px]:flex min-[410px]:justify-center ml-6 min-[360px]:ml-11 min-[375px]:ml-14 min-[390px]:ml-16 min-[410px]:ml-0 sm:ml-8 md:ml-1 my-20 md:my-40">
+            <div role="tablist" className="tabs tabs-lifted w-2/3 md:tabs-lg">
               <input
                 type="radio"
                 name="my_tabs_2"
@@ -111,20 +111,20 @@ export default function Page() {
               />
               <div
                 role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md "
               >
                 <form action={expressionAnalysisAction}>
                   <div>
                     <label className="form-control">
                       <div className="label sm:flex sm:justify-center">
-                        <span className="label-text text-xs min-[410px]:text-sm">
+                        <span className="label-text text-xs min-[410px]:text-sm md:text-base">
                           Type a sentence to explore it&apos;s meaning
                         </span>
                       </div>
                       <div className="sm:flex sm:justify-center">
                         <textarea
                           name="phrase"
-                          className="textarea textarea-bordered textarea-xs min-[410px]:textarea-md w-full max-w-xs sm:h-24 "
+                          className="textarea textarea-bordered textarea-xs min-[410px]:textarea-md w-full max-w-xs md:max-w-md sm:h-24 "
                           placeholder="Paste your phrase here..."
                         ></textarea>
                       </div>
@@ -134,8 +134,8 @@ export default function Page() {
                   <div className="flex flex-wrap justify-items-start sm:flex sm:justify-center mt-2">
                     <div>
                       <div className="label w-56 sm:w-72 ">
-                        <span className="label-text text-xs min-[410px]:text-sm ">
-                          Select tier (Determines response quality)
+                        <span className="label-text text-xs min-[410px]:text-sm md:text-base">
+                          Select tier (Determines detail)
                         </span>
                       </div>
                       <select
@@ -150,7 +150,7 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="label w-56 sm:w-72">
-                        <span className="label-text text-xs min-[410px]:text-sm">
+                        <span className="label-text text-xs min-[410px]:text-sm md:text-base">
                           Select your native language
                         </span>
                       </div>
@@ -176,7 +176,7 @@ export default function Page() {
                 </form>
                 <div>
                   {expressionAnaylsis?.expressionAnswer ? (
-                    <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm">
+                    <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: formatExpression(
@@ -204,18 +204,18 @@ export default function Page() {
               />
               <div
                 role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md"
               >
                 <form action={dictionaryAction}>
                   <div>
                     <label className="form-control">
                       <div className="label sm:flex sm:justify-center">
-                        <span className="label-text text-xs min-[410px]:text-sm">
+                        <span className="label-text text-xs min-[410px]:text-sm md:text-base">
                           See a word&apos;s definition in your native language
                         </span>
                       </div>
                       <div className="sm:flex sm:justify-center">
-                        <label className="input input-bordered flex items-center gap-2 input-xs min-[410px]:input-sm w-full max-w-xs">
+                        <label className="input input-bordered flex items-center gap-2 input-xs min-[410px]:input-sm w-full max-w-xs md:max-w-md">
                           <input
                             type="text"
                             name="word"
@@ -237,11 +237,11 @@ export default function Page() {
                         </label>
                       </div>
 
-                      <div className="flex justify-items-start sm:justify-center flex-wrap md:flex-nowrap mt-2 sm:mt-5">
+                      <div className="flex justify-items-start sm:justify-center flex-wrap mt-2 sm:mt-5">
                         <div>
                           <div className="label w-56  sm:w-72">
-                            <span className="label-text text-xs min-[410px]:text-sm">
-                              Select tier (Determines response quality)
+                            <span className="label-text text-xs min-[410px]:text-sm md:text-base ">
+                              Select tier (Determines detail)
                             </span>
                           </div>
                           <select
@@ -256,7 +256,7 @@ export default function Page() {
                         </div>
                         <div>
                           <div className="label w-56  sm:w-72">
-                            <span className="label-text text-xs min-[410px]:text-sm">
+                            <span className="label-text text-xs min-[410px]:text-sm md:text-base">
                               Select your native language
                             </span>
                           </div>
@@ -284,7 +284,7 @@ export default function Page() {
                 </form>
                 <div>
                   {wordDefinition?.wordAnswer ? (
-                    <div className="mt-10 text-xs min-[410px]:text-sm">
+                    <div className="mt-10 text-xs min-[410px]:text-sm md:text-base">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: formatExpression(wordDefinition.wordAnswer),
