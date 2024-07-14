@@ -10,58 +10,23 @@ export default function Page() {
   // we are returning the an object with message key. set the initial
   const [wordDefinition, dictionaryAction] = useFormState(defineWord, {
     wordAnswer: "",
+    error: "",
   });
   const [expressionAnaylsis, expressionAnalysisAction] = useFormState(
     analyseExpression,
     {
       expressionAnswer: "",
+      error: "",
     }
   );
 
-  // Function to format the API response into paragraphs
-  const formatApiResponse = (text: string) => {
-    // Split the response into meaningful sections
-    const sections = text.split(/\.(?!\d)/); // Split by periods that are not followed by a digit
-
-    return sections.map((section, index) => (
-      <p key={index} className="mb-4">
-        {section.trim()}.
-      </p>
-    ));
-  };
-
-  const formatWordDefinition = (text: string) => {
-    const paragraphs = text.split("\n\n");
-    return paragraphs.map((paragraph, index) => {
-      if (paragraph.startsWith("Example sentences:")) {
-        const sentences = paragraph.split("\n").slice(1); // Split by lines and remove the first line
-        return (
-          <div key={index}>
-            <p>Example sentences:</p>
-            <ul className="list-disc pl-5">
-              {sentences.map((sentence, idx) => (
-                <li key={idx}>{sentence.replace(/^\d+\.\s*/, "")}</li> // Remove leading number and period
-              ))}
-            </ul>
-          </div>
-        );
-      } else if (paragraph.startsWith("Dictionary form:")) {
-        const forms = paragraph.split("\n").slice(1); // Split by lines and remove the first line
-        return (
-          <div key={index}>
-            <p>Dictionary form:</p>
-            <ul className="list-disc pl-5">
-              {forms.map((form, idx) => (
-                <li key={idx}>{form.replace(/^\-\s*/, "")}</li> // Remove leading dash and space
-              ))}
-            </ul>
-          </div>
-        );
-      } else {
-        return <p key={index}>{paragraph}</p>;
-      }
-    });
-  };
+  function formatExpression(expression: string): string {
+    return expression
+      .replace(/ - /g, " • ") // Convert dashes to bullet points
+      .replace(/\n/g, "<br>") // Line breaks
+      .replace(/"/g, "&quot;") // Escape double quotes for HTML
+      .replace(/'/g, "&#39;"); // Escape single quotes for HTML
+  }
 
   return (
     <>
@@ -176,28 +141,6 @@ export default function Page() {
                         <option value="Patois">Patois</option>
                       </select>
                     </div>
-                    <div>
-                      <div className="label">
-                        <span className="label-text text-xs min-[410px]:text-sm">
-                          Select your target language (Must match phrase
-                          language)
-                        </span>
-                      </div>
-                      <select
-                        name="targetLanguage"
-                        className="select select-primary w-full select-xs min-[410px]:select-sm max-w-xs sm:max-w-lg"
-                      >
-                        <option value="Japanese">Japanese</option>
-                        <option value="Korean">Korean</option>
-                        <option defaultValue="true" value="English">
-                          English
-                        </option>
-                        <option value="Mandarin">Mandarin</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="French">French</option>
-                        <option value="Patois">Patois</option>
-                      </select>
-                    </div>
                   </div>
                   <div className="mt-5">
                     <input
@@ -210,7 +153,18 @@ export default function Page() {
                 <div>
                   {expressionAnaylsis?.expressionAnswer ? (
                     <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm">
-                      {formatApiResponse(expressionAnaylsis.expressionAnswer)}
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: formatExpression(
+                            expressionAnaylsis.expressionAnswer
+                          ),
+                        }}
+                      />
+                    </div>
+                  ) : null}
+                  {expressionAnaylsis?.expressionAnswer ? (
+                    <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm text-red-600">
+                      {expressionAnaylsis.error}
                     </div>
                   ) : null}
                 </div>
@@ -308,7 +262,17 @@ export default function Page() {
                 <div>
                   {wordDefinition?.wordAnswer ? (
                     <div className="mt-10 text-xs min-[410px]:text-sm">
-                      {formatWordDefinition(wordDefinition.wordAnswer)}
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: formatExpression(wordDefinition.wordAnswer),
+                        }}
+                      />
+                    </div>
+                  ) : null}
+
+                  {wordDefinition?.error ? (
+                    <div className="mt-10 text-xs min-[410px]:text-sm text-red-600">
+                      {wordDefinition.error}
                     </div>
                   ) : null}
                 </div>

@@ -4,7 +4,6 @@ export async function analyseExpression(prevState: any, formData: FormData) {
   const rawFormData = {
     phrase: formData.get("phrase"),
     tier: formData.get("tier"),
-    targetLanguage: formData.get("targetLanguage"),
     nativeLanguage: formData.get("nativeLanguage"),
   };
 
@@ -29,9 +28,15 @@ export async function analyseExpression(prevState: any, formData: FormData) {
     //console.log(answer);
     return {
       expressionAnswer: answer,
+      error: null,
     };
   } catch (error) {
     console.error("Error:", error);
+    return {
+      expressionAnswer: null,
+      error:
+        "Failed to process your sentence. Please make sure you select the correct sentence language and try again.",
+    };
   }
 }
 
@@ -61,11 +66,17 @@ export async function defineWord(prevState: any, formData: FormData) {
 
     var answer = await response.json();
     //console.log("Answer:");
-    //console.log(answer);
+    //console.log(answer);0
     return {
       wordAnswer: answer,
+      error: null,
     };
   } catch (error) {
     console.error("Error:", error);
+    return {
+      wordAnswer: answer,
+      error:
+        "Failed to process your sentence. Please make sure you select the correct sentence language and try again.",
+    };
   }
 }
