@@ -100,8 +100,8 @@ export default function Page() {
           </div>
 
           {/* Page content here */}
-          <div className="  min-[410px]:flex min-[410px]:justify-center ml-6 min-[360px]:ml-11 min-[375px]:ml-14 min-[390px]:ml-16 min-[410px]:ml-0 my-20 sm:my-20 md:my-40">
-            <div role="tablist" className="tabs tabs-lifted  sm:tabs-lg  w-2/3">
+          <div className="min-[410px]:flex min-[410px]:justify-center ml-6 min-[360px]:ml-11 min-[375px]:ml-14 min-[390px]:ml-16 min-[410px]:ml-0 sm:ml-8 my-20 md:my-40">
+            <div role="tablist" className="tabs tabs-lifted w-2/3">
               <input
                 type="radio"
                 name="my_tabs_2"
@@ -111,29 +111,30 @@ export default function Page() {
               />
               <div
                 role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm"
               >
                 <form action={expressionAnalysisAction}>
                   <div>
                     <label className="form-control">
-                      <div className="label">
+                      <div className="label sm:flex sm:justify-center">
                         <span className="label-text text-xs min-[410px]:text-sm">
-                          Type a Sentence to Explore Its Meaning and Grammar
+                          Type a sentence to explore it&apos;s meaning
                         </span>
                       </div>
-                      <textarea
-                        name="phrase"
-                        className="textarea textarea-bordered textarea-xs min-[410px]:textarea-md w-full max-w-xs sm:h-24 "
-                        placeholder="Paste your phrase here..."
-                      ></textarea>
-                      <div className="label"></div>
+                      <div className="sm:flex sm:justify-center">
+                        <textarea
+                          name="phrase"
+                          className="textarea textarea-bordered textarea-xs min-[410px]:textarea-md w-full max-w-xs sm:h-24 "
+                          placeholder="Paste your phrase here..."
+                        ></textarea>
+                      </div>
                     </label>
                   </div>
 
-                  <div className="flex flex-wrap justify-items-start">
+                  <div className="flex flex-wrap justify-items-start sm:flex sm:justify-center mt-2">
                     <div>
-                      <div className="label w-56">
-                        <span className="label-text text-xs min-[410px]:text-sm">
+                      <div className="label w-56 sm:w-72 ">
+                        <span className="label-text text-xs min-[410px]:text-sm ">
                           Select tier (Determines response quality)
                         </span>
                       </div>
@@ -148,7 +149,7 @@ export default function Page() {
                       </select>
                     </div>
                     <div>
-                      <div className="label w-56">
+                      <div className="label w-56 sm:w-72">
                         <span className="label-text text-xs min-[410px]:text-sm">
                           Select your native language
                         </span>
@@ -165,7 +166,7 @@ export default function Page() {
                       </select>
                     </div>
                   </div>
-                  <div className="mt-5">
+                  <div className="mt-5 sm:flex sm:justify-center">
                     <input
                       type="submit"
                       value="Translate and Learn"
@@ -203,39 +204,42 @@ export default function Page() {
               />
               <div
                 role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm"
               >
                 <form action={dictionaryAction}>
                   <div>
                     <label className="form-control">
-                      <div className="label">
+                      <div className="label sm:flex sm:justify-center">
                         <span className="label-text text-xs min-[410px]:text-sm">
                           See a word&apos;s definition in your native language
                         </span>
                       </div>
-                      <label className="input input-bordered flex items-center gap-2 input-xs min-[410px]:input-sm w-full max-w-xs">
-                        <input
-                          type="text"
-                          name="word"
-                          className="grow "
-                          placeholder="Search"
-                        />
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                          className="h-4 w-4 opacity-70"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                            clipRule="evenodd"
+                      <div className="sm:flex sm:justify-center">
+                        <label className="input input-bordered flex items-center gap-2 input-xs min-[410px]:input-sm w-full max-w-xs">
+                          <input
+                            type="text"
+                            name="word"
+                            className="grow "
+                            placeholder="Search"
                           />
-                        </svg>
-                      </label>
-                      <div className="flex justify-items-start flex-wrap sm:flex-nowrap mt-2 sm:mt-5">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 16 16"
+                            fill="currentColor"
+                            className="h-4 w-4 opacity-70"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </label>
+                      </div>
+
+                      <div className="flex justify-items-start sm:justify-center flex-wrap md:flex-nowrap mt-2 sm:mt-5">
                         <div>
-                          <div className="label w-56">
+                          <div className="label w-56  sm:w-72">
                             <span className="label-text text-xs min-[410px]:text-sm">
                               Select tier (Determines response quality)
                             </span>
@@ -251,7 +255,7 @@ export default function Page() {
                           </select>
                         </div>
                         <div>
-                          <div className="label w-56">
+                          <div className="label w-56  sm:w-72">
                             <span className="label-text text-xs min-[410px]:text-sm">
                               Select your native language
                             </span>
@@ -268,7 +272,7 @@ export default function Page() {
                           </select>
                         </div>
                       </div>
-                      <div className="mt-5">
+                      <div className="mt-5 sm:flex sm:justify-center">
                         <input
                           type="submit"
                           value="Define Word"
