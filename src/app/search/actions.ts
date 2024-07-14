@@ -75,7 +75,7 @@ export async function defineWord(prevState: any, formData: FormData) {
     return {
       wordAnswer: answer,
       error:
-        "Failed to process your sentence. Please make sure you select the correct sentence language and try again.",
+        "Failed to process your word. Please make sure you use the Dictionary to look up single words only",
     };
   }
 }
