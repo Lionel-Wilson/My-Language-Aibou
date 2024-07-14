@@ -6,6 +6,189 @@ import { analyseExpression, defineWord } from "./actions";
 import Link from "next/link";
 
 export default function Page() {
+  const wellKnownLanguages = [
+    "Afar",
+    "Afrikaans",
+    "Akan",
+    "Albanian",
+    "Amharic",
+    "Arabic",
+    "Aragonese",
+    "Armenian",
+    "Assamese",
+    "Avaric",
+    "Aymara",
+    "Azerbaijani",
+    "Bambara",
+    "Bashkir",
+    "Basque",
+    "Belarusian",
+    "Bengali",
+    "Bihari",
+    "Bislama",
+    "Bosnian",
+    "Breton",
+    "Bulgarian",
+    "Burmese",
+    "Catalan",
+    "Chamorro",
+    "Chechen",
+    "Chichewa",
+    "Chinese",
+    "Chuvash",
+    "Cornish",
+    "Corsican",
+    "Cree",
+    "Croatian",
+    "Czech",
+    "Danish",
+    "Dutch",
+    "Dzongkha",
+    "English",
+    "Esperanto",
+    "Estonian",
+    "Ewe",
+    "Faroese",
+    "Fijian",
+    "Finnish",
+    "French",
+    "Frisian",
+    "Fulah",
+    "Galician",
+    "Ganda",
+    "Georgian",
+    "German",
+    "Greek",
+    "Guaraní",
+    "Gujarati",
+    "Haitian Creole",
+    "Hausa",
+    "Hebrew",
+    "Herero",
+    "Hindi",
+    "Hiri Motu",
+    "Hungarian",
+    "Icelandic",
+    "Ido",
+    "Igbo",
+    "Indonesian",
+    "Interlingua",
+    "Interlingue",
+    "Inuktitut",
+    "Inupiaq",
+    "Irish",
+    "Italian",
+    "Japanese",
+    "Javanese",
+    "Kalaallisut",
+    "Kannada",
+    "Kanuri",
+    "Kashmiri",
+    "Kazakh",
+    "Khmer",
+    "Kikuyu",
+    "Kinyarwanda",
+    "Kirundi",
+    "Komi",
+    "Kongo",
+    "Korean",
+    "Kurdish",
+    "Kyrgyz",
+    "Lao",
+    "Latin",
+    "Latvian",
+    "Limburgish",
+    "Lingala",
+    "Lithuanian",
+    "Luba-Katanga",
+    "Luxembourgish",
+    "Macedonian",
+    "Malagasy",
+    "Malay",
+    "Malayalam",
+    "Maltese",
+    "Manx",
+    "Maori",
+    "Marathi",
+    "Marshallese",
+    "Mongolian",
+    "Nauruan",
+    "Navajo",
+    "Ndonga",
+    "Nepali",
+    "North Ndebele",
+    "Northern Sami",
+    "Norwegian",
+    "Norwegian Bokmål",
+    "Norwegian Nynorsk",
+    "Occitan",
+    "Ojibwe",
+    "Oriya",
+    "Oromo",
+    "Ossetian",
+    "Pāli",
+    "Pashto",
+    "Persian",
+    "Polish",
+    "Portuguese",
+    "Punjabi",
+    "Quechua",
+    "Romansh",
+    "Romanian",
+    "Russian",
+    "Samoan",
+    "Sango",
+    "Sanskrit",
+    "Sardinian",
+    "Scots",
+    "Scottish Gaelic",
+    "Serbian",
+    "Sesotho",
+    "Shona",
+    "Sindhi",
+    "Sinhalese",
+    "Slovak",
+    "Slovene",
+    "Somali",
+    "Sotho",
+    "Spanish",
+    "Sundanese",
+    "Swahili",
+    "Swati",
+    "Swedish",
+    "Tagalog",
+    "Tahitian",
+    "Tajik",
+    "Tamil",
+    "Tatar",
+    "Telugu",
+    "Thai",
+    "Tibetan",
+    "Tigrinya",
+    "Tonga",
+    "Tsonga",
+    "Tswana",
+    "Turkish",
+    "Turkmen",
+    "Twi",
+    "Uighur",
+    "Ukrainian",
+    "Urdu",
+    "Uzbek",
+    "Venda",
+    "Vietnamese",
+    "Volapük",
+    "Walloon",
+    "Welsh",
+    "Western Frisian",
+    "Wolof",
+    "Xhosa",
+    "Yiddish",
+    "Yoruba",
+    "Zhuang",
+    "Zulu",
+  ];
+
   // action is kinda enhanced version of
   // we are returning the an object with message key. set the initial
   const [wordDefinition, dictionaryAction] = useFormState(defineWord, {
@@ -131,15 +314,11 @@ export default function Page() {
                         name="nativeLanguage"
                         className="select select-primary w-full select-xs min-[410px]:select-sm  max-w-xs  sm:max-w-md"
                       >
-                        <option value="Japanese">Japanese</option>
-                        <option value="Korean">Korean</option>
-                        <option defaultValue="true" value="English">
-                          English
-                        </option>
-                        <option value="Mandarin">Mandarin</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="French">French</option>
-                        <option value="Patois">Patois</option>
+                        {wellKnownLanguages.map((lang) => (
+                          <option key={lang} value={lang}>
+                            {lang}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -238,15 +417,11 @@ export default function Page() {
                             name="nativeLanguage"
                             className="select select-primary select-xs min-[410px]:select-sm w-full max-w-xs"
                           >
-                            <option value="Japanese">Japanese</option>
-                            <option defaultValue="true" value="Korean">
-                              Korean
-                            </option>
-                            <option value="English">English</option>
-                            <option value="Mandarin">Mandarin</option>
-                            <option value="Spanish">Spanish</option>
-                            <option value="French">French</option>
-                            <option value="Patois">Patois</option>
+                            {wellKnownLanguages.map((lang) => (
+                              <option key={lang} value={lang}>
+                                {lang}
+                              </option>
+                            ))}
                           </select>
                         </div>
                       </div>
