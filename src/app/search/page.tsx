@@ -10,13 +10,14 @@ export default function Page() {
   // we are returning the an object with message key. set the initial
   const [wordDefinition, dictionaryAction] = useFormState(defineWord, {
     wordAnswer: "",
-    error: "",
+    error: null,
   });
+
   const [expressionAnaylsis, expressionAnalysisAction] = useFormState(
     analyseExpression,
     {
       expressionAnswer: "",
-      error: "",
+      error: null,
     }
   );
 
