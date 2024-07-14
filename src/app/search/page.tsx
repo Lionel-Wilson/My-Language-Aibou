@@ -100,7 +100,7 @@ export default function Page() {
           </div>
 
           {/* Page content here */}
-          <div className="min-[410px]:flex min-[410px]:justify-center ml-6 min-[360px]:ml-11 min-[375px]:ml-14 min-[390px]:ml-16 min-[410px]:ml-0 sm:ml-8 md:ml-10 lg:ml-36 xl:ml-60 my-20 md:my-40">
+          <div className="min-[410px]:flex min-[410px]:justify-center ml-6 min-[360px]:ml-11 min-[375px]:ml-14 min-[390px]:ml-16 min-[410px]:ml-0 sm:ml-8 md:ml-10 lg:ml-36 xl:ml-60 2xl:ml-[490px] my-20 md:my-40 2xl:my-16">
             <div role="tablist" className="tabs tabs-lifted w-2/3 md:tabs-lg">
               <input
                 type="radio"
@@ -215,7 +215,7 @@ export default function Page() {
                         </span>
                       </div>
                       <div className="sm:flex sm:justify-center">
-                        <label className="input input-bordered flex items-center gap-2 input-xs min-[410px]:input-sm w-full max-w-xs md:max-w-md">
+                        <label className="input input-bordered flex items-center gap-2 input-xs min-[410px]:input-sm 2xl:input-md w-full max-w-xs md:max-w-md">
                           <input
                             type="text"
                             name="word"
@@ -246,7 +246,7 @@ export default function Page() {
                           </div>
                           <select
                             name="tier"
-                            className="select select-primary select-xs min-[410px]:select-sm w-full max-w-xs"
+                            className="select select-primary select-xs min-[410px]:select-sm  w-full max-w-xs"
                           >
                             <option defaultValue="true" value="Basic">
                               Basic
