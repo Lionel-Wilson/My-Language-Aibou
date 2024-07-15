@@ -187,7 +187,7 @@ export default function Page() {
                     </div>
                   ) : null}
                   {expressionAnaylsis?.error ? (
-                    <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm text-red-600">
+                    <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm text-red-600 flex justify-center">
                       {expressionAnaylsis.error}
                     </div>
                   ) : null}
@@ -294,7 +294,7 @@ export default function Page() {
                   ) : null}
 
                   {wordDefinition?.error ? (
-                    <div className="mt-10 text-xs min-[410px]:text-sm text-red-600">
+                    <div className="mt-10 text-xs min-[410px]:text-sm text-red-600 flex justify-center">
                       {wordDefinition.error}
                     </div>
                   ) : null}
