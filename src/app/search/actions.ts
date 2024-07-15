@@ -47,9 +47,35 @@ export async function defineWord(prevState: any, formData: FormData) {
     nativeLanguage: formData.get("nativeLanguage"),
   };
 
+  const response = await fetch(`${process.env.API_URL}/search/word`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(rawFormData),
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    //throw new Error("Failed to fetch data");
+    var body = await response.json();
+
+    return {
+      wordAnswer: "",
+      error: body.message,
+    };
+  }
+
+  var answer = await response.json();
+  //console.log("Answer:");
+  //console.log(answer);
+  return {
+    wordAnswer: answer,
+    error: null,
+  };
   // This request should be refetched on every request.
   // Similar to `getServerSideProps`.
-  try {
+  /*try {
     const response = await fetch(`${process.env.API_URL}/search/word`, {
       method: "POST",
       headers: {
@@ -60,12 +86,19 @@ export async function defineWord(prevState: any, formData: FormData) {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch data");
+      //console.error("Error:", body);
+      //throw new Error("Failed to fetch data");
+      var body = await response.json();
+
+      return {
+        wordAnswer: "",
+        error: body.message,
+      };
     }
 
     var answer = await response.json();
     //console.log("Answer:");
-    //console.log(answer);0
+    //console.log(answer);
     return {
       wordAnswer: answer,
       error: null,
@@ -77,5 +110,5 @@ export async function defineWord(prevState: any, formData: FormData) {
       error:
         "Failed to process your word. Please make sure you use the Dictionary to look up single words only",
     };
-  }
+  }*/
 }
