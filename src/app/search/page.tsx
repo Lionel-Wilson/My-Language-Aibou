@@ -118,7 +118,7 @@ export default function Page() {
                     <label className="form-control">
                       <div className="label sm:flex sm:justify-center">
                         <span className="label-text text-xs min-[410px]:text-sm md:text-base">
-                          Type a sentence to explore it&apos;s meaning
+                          Type a sentence to explore its meaning
                         </span>
                       </div>
                       <div className="sm:flex sm:justify-center">
@@ -132,7 +132,7 @@ export default function Page() {
                   </div>
 
                   <div className="flex flex-wrap justify-items-start sm:flex sm:justify-center mt-2">
-                    <div>
+                    {/*<div> old tier selection
                       <div className="label w-56 sm:w-72 ">
                         <span className="label-text text-xs min-[410px]:text-sm md:text-base">
                           Select tier (Determines detail)
@@ -147,7 +147,7 @@ export default function Page() {
                         </option>
                         <option value="Basic">Basic</option>
                       </select>
-                    </div>
+                    </div>*/}
                     <div>
                       <div className="label w-56 sm:w-72">
                         <span className="label-text text-xs min-[410px]:text-sm md:text-base">
@@ -238,7 +238,7 @@ export default function Page() {
                       </div>
 
                       <div className="flex justify-items-start sm:justify-center flex-wrap mt-2 sm:mt-5">
-                        <div>
+                        {/*<div>
                           <div className="label w-56  sm:w-72">
                             <span className="label-text text-xs min-[410px]:text-sm md:text-base ">
                               Select tier (Determines detail)
@@ -253,7 +253,7 @@ export default function Page() {
                             </option>
                             <option value="Basic">Basic</option>
                           </select>
-                        </div>
+                        </div>*/}
                         <div>
                           <div className="label w-56  sm:w-72">
                             <span className="label-text text-xs min-[410px]:text-sm md:text-base">
