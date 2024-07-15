@@ -2,12 +2,12 @@
 
 export async function analyseExpression(prevState: any, formData: FormData) {
   const rawFormData = {
-    phrase: formData.get("phrase"),
+    sentence: formData.get("sentence"),
     tier: formData.get("tier"),
     nativeLanguage: formData.get("nativeLanguage"),
   };
 
-  const response = await fetch(`${process.env.API_URL}/search/phrase`, {
+  const response = await fetch(`${process.env.API_URL}/search/sentence`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export async function analyseExpression(prevState: any, formData: FormData) {
 
   /*
   try {
-    const response = await fetch(`${process.env.API_URL}/search/phrase`, {
+    const response = await fetch(`${process.env.API_URL}/search/sentence`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

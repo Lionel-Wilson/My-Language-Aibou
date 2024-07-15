@@ -123,9 +123,9 @@ export default function Page() {
                       </div>
                       <div className="sm:flex sm:justify-center">
                         <textarea
-                          name="phrase"
+                          name="sentence"
                           className="textarea textarea-bordered textarea-xs min-[410px]:textarea-md w-full max-w-xs md:max-w-md sm:h-24 "
-                          placeholder="Paste your phrase here..."
+                          placeholder="Paste your sentence here..."
                         ></textarea>
                       </div>
                     </label>
