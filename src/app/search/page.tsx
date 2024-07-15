@@ -142,10 +142,10 @@ export default function Page() {
                         name="tier"
                         className="select select-primary w-full select-xs min-[410px]:select-sm  max-w-xs  sm:max-w-md "
                       >
-                        <option value="Basic">Basic</option>
                         <option defaultValue="true" value="Premium">
                           Premium
                         </option>
+                        <option value="Basic">Basic</option>
                       </select>
                     </div>
                     <div>
@@ -248,10 +248,10 @@ export default function Page() {
                             name="tier"
                             className="select select-primary select-xs min-[410px]:select-sm  w-full max-w-xs"
                           >
-                            <option value="Basic">Basic</option>
                             <option defaultValue="true" value="Premium">
                               Premium
                             </option>
+                            <option value="Basic">Basic</option>
                           </select>
                         </div>
                         <div>
