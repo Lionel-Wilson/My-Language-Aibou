@@ -7,8 +7,33 @@ export async function analyseExpression(prevState: any, formData: FormData) {
     nativeLanguage: formData.get("nativeLanguage"),
   };
 
-  // This request should be refetched on every request.
-  // Similar to `getServerSideProps`.
+  const response = await fetch(`${process.env.API_URL}/search/phrase`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(rawFormData),
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    var body = await response.json();
+
+    return {
+      expressionAnswer: "",
+      error: body.message,
+    };
+  }
+
+  var answer = await response.json();
+  //console.log("Answer:");
+  //console.log(answer);
+  return {
+    expressionAnswer: answer,
+    error: null,
+  };
+
+  /*
   try {
     const response = await fetch(`${process.env.API_URL}/search/phrase`, {
       method: "POST",
@@ -37,7 +62,7 @@ export async function analyseExpression(prevState: any, formData: FormData) {
       error:
         "Failed to process your sentence. Please double check your sentence and try again",
     };
-  }
+  }*/
 }
 
 export async function defineWord(prevState: any, formData: FormData) {

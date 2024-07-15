@@ -186,7 +186,7 @@ export default function Page() {
                       />
                     </div>
                   ) : null}
-                  {expressionAnaylsis?.expressionAnswer ? (
+                  {expressionAnaylsis?.error ? (
                     <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm text-red-600">
                       {expressionAnaylsis.error}
                     </div>
