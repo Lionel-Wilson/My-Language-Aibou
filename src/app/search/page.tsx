@@ -118,7 +118,7 @@ export default function Page() {
                     <label className="form-control">
                       <div className="label sm:flex sm:justify-center">
                         <span className="label-text text-xs min-[410px]:text-sm md:text-base">
-                          Type a sentence to explore its meaning
+                          Explore the Meaning of a Sentence from Any Language
                         </span>
                       </div>
                       <div className="sm:flex sm:justify-center">
