@@ -1,9 +1,9 @@
 "use client";
 import { useFormState } from "react-dom";
 import Footer from "../components/footer";
-import Navbar from "../components/navbar";
 import { analyseExpression, defineWord } from "./actions";
 import Link from "next/link";
+import { SubmitButton } from "../components/submit-button";
 
 export default function Page() {
   const wellKnownLanguages = [
@@ -167,32 +167,26 @@ export default function Page() {
                       </select>
                     </div>
                   </div>
-                  <div className="mt-5 sm:flex sm:justify-center">
-                    <input
-                      type="submit"
-                      value="Translate and Learn"
-                      className="btn btn-xs min-[410px]:btn-sm sm:btn-wide btn-primary"
-                    />
+                  <SubmitButton Title="Translate and Learn" />
+                  <div>
+                    {expressionAnaylsis?.expressionAnswer ? (
+                      <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base">
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: formatExpression(
+                              expressionAnaylsis.expressionAnswer
+                            ),
+                          }}
+                        />
+                      </div>
+                    ) : null}
+                    {expressionAnaylsis?.error ? (
+                      <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm text-red-600 flex justify-center">
+                        {expressionAnaylsis.error}
+                      </div>
+                    ) : null}
                   </div>
                 </form>
-                <div>
-                  {expressionAnaylsis?.expressionAnswer ? (
-                    <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base">
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: formatExpression(
-                            expressionAnaylsis.expressionAnswer
-                          ),
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  {expressionAnaylsis?.error ? (
-                    <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm text-red-600 flex justify-center">
-                      {expressionAnaylsis.error}
-                    </div>
-                  ) : null}
-                </div>
               </div>
 
               <input
@@ -273,13 +267,7 @@ export default function Page() {
                           </select>
                         </div>
                       </div>
-                      <div className="mt-5 sm:flex sm:justify-center">
-                        <input
-                          type="submit"
-                          value="Define Word"
-                          className="btn btn-xs min-[410px]:btn-sm sm:btn-wide btn-primary"
-                        />
-                      </div>
+                      <SubmitButton Title="Define Word" />
                     </label>
                   </div>
                 </form>
