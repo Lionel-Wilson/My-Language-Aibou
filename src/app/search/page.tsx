@@ -104,8 +104,8 @@ export default function Page() {
 
           {/* Page content here */}
 
-          <div className="flex w-full ">
-            <div className="card bg-base-300 rounded-none grid flex-grow place-items-center xl:py-32">
+          <div className="flex w-full flex-col lg:flex-row">
+            <div className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-10 xl:py-32">
               <div className=" bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md ">
                 <form action={expressionAnalysisAction}>
                   <div>
@@ -192,9 +192,9 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="divider divider-horizontal"></div>
+            <div className="divider lg:divider-horizontal"></div>
 
-            <div className="card bg-base-300 rounded-none grid flex-grow place-items-center ">
+            <div className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-10  xl:py-32">
               <div className=" bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md">
                 <form action={dictionaryAction}>
                   <div>
