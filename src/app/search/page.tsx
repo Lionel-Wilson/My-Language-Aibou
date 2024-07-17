@@ -181,7 +181,7 @@ export default function Page() {
 
                   <div>
                     {expressionAnaylsis?.expressionAnswer ? (
-                      <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base">
+                      <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md">
                         <p
                           dangerouslySetInnerHTML={{
                             __html: formatExpression(
@@ -292,7 +292,7 @@ export default function Page() {
                 </form>
                 <div>
                   {wordDefinition?.wordAnswer ? (
-                    <div className="mt-10 text-xs min-[410px]:text-sm md:text-base">
+                    <div className="mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: formatExpression(wordDefinition.wordAnswer),
