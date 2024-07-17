@@ -10,6 +10,7 @@ export default function Page() {
     "English",
     "Japanese",
     "Mandarin Chinese",
+    "Irish Gaelic",
     "Yoruba",
     "French",
     "Hindi",
