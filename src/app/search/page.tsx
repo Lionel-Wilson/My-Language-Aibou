@@ -52,7 +52,8 @@ export default function Page() {
       .replace(/ - /g, " • ") // Convert dashes to bullet points
       .replace(/\n/g, "<br>") // Line breaks
       .replace(/"/g, "&quot;") // Escape double quotes for HTML
-      .replace(/'/g, "&#39;"); // Escape single quotes for HTML
+      .replace(/'/g, "&#39;") // Escape single quotes for HTML
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"); // Bolden words surrounded by **
   }
 
   return (
