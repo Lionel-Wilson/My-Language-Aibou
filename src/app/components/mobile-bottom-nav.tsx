@@ -2,11 +2,17 @@
 
 import Link from "next/link";
 
+interface MobileBottomNavProps {
+  activeComponent: "SentenceAnalyser" | "Dictionary";
+  onShowSentenceAnalyser: () => void;
+  onShowDictionary: () => void;
+}
+
 export function MobileBottomNav({
   activeComponent,
   onShowSentenceAnalyser,
   onShowDictionary,
-}) {
+}: MobileBottomNavProps) {
   return (
     <>
       {/* bottom nav*/}
@@ -41,7 +47,7 @@ export function MobileBottomNav({
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-6"
+            className="size-6"
           >
             <path
               stroke-linecap="round"
@@ -62,7 +68,7 @@ export function MobileBottomNav({
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-6"
+            className="size-6"
           >
             <path
               stroke-linecap="round"
