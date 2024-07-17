@@ -103,19 +103,10 @@ export default function Page() {
           </div>
 
           {/* Page content here */}
-          <div className="min-[410px]:flex min-[410px]:justify-center ml-6 min-[360px]:ml-11 min-[375px]:ml-14 min-[390px]:ml-16 min-[410px]:ml-0 sm:ml-8 md:ml-10 lg:ml-36 xl:ml-60 2xl:ml-[490px] my-20 md:my-40 2xl:my-16">
-            <div role="tablist" className="tabs tabs-lifted w-2/3 md:tabs-lg">
-              <input
-                type="radio"
-                name="my_tabs_2"
-                role="tab"
-                className="tab"
-                aria-label="Analyzer"
-              />
-              <div
-                role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md "
-              >
+
+          <div className="flex w-full ">
+            <div className="card bg-base-300 rounded-none grid flex-grow place-items-center xl:py-32">
+              <div className=" bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md ">
                 <form action={expressionAnalysisAction}>
                   <div>
                     <label className="form-control">
@@ -199,19 +190,12 @@ export default function Page() {
                   </div>
                 </form>
               </div>
+            </div>
 
-              <input
-                type="radio"
-                name="my_tabs_2"
-                role="tab"
-                className="tab"
-                aria-label="Dictionary"
-                defaultChecked
-              />
-              <div
-                role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md"
-              >
+            <div className="divider divider-horizontal"></div>
+
+            <div className="card bg-base-300 rounded-none grid flex-grow place-items-center ">
+              <div className=" bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md">
                 <form action={dictionaryAction}>
                   <div>
                     <label className="form-control">
@@ -310,6 +294,7 @@ export default function Page() {
               </div>
             </div>
           </div>
+
           <Footer></Footer>
         </div>
 
