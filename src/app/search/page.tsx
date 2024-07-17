@@ -132,6 +132,14 @@ export default function Page() {
                         ></textarea>
                       </div>
                     </label>
+                    <div className="mt-3 sm:mt-5 sm:flex sm:justify-center ">
+                      <button
+                        className="btn btn-outline btn-xs min-[410px]:btn-sm "
+                        type="reset"
+                      >
+                        Clear Field
+                      </button>
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap justify-items-start sm:flex sm:justify-center mt-2">
@@ -170,14 +178,7 @@ export default function Page() {
                     </div>
                   </div>
                   <SubmitButton Title="Translate and Learn" />
-                  <div className="mt-3 sm:mt-5 sm:flex sm:justify-center ">
-                    <button
-                      className="btn btn-outline btn-xs min-[410px]:btn-sm "
-                      type="reset"
-                    >
-                      Clear Field
-                    </button>
-                  </div>
+
                   <div>
                     {expressionAnaylsis?.expressionAnswer ? (
                       <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base">
@@ -241,6 +242,14 @@ export default function Page() {
                           </svg>
                         </label>
                       </div>
+                      <div className="mt-3 sm:mt-5 sm:flex sm:justify-center ">
+                        <button
+                          className="btn btn-outline btn-xs min-[410px]:btn-sm "
+                          type="reset"
+                        >
+                          Clear Field
+                        </button>
+                      </div>
 
                       <div className="flex justify-items-start sm:justify-center flex-wrap mt-2 sm:mt-5">
                         {/*<div>
@@ -278,14 +287,6 @@ export default function Page() {
                         </div>
                       </div>
                       <SubmitButton Title="Define Word" />
-                      <div className="mt-3 sm:mt-5 sm:flex sm:justify-center ">
-                        <button
-                          className="btn btn-outline btn-xs min-[410px]:btn-sm "
-                          type="reset"
-                        >
-                          Clear Field
-                        </button>
-                      </div>
                     </label>
                   </div>
                 </form>
