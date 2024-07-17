@@ -170,6 +170,14 @@ export default function Page() {
                     </div>
                   </div>
                   <SubmitButton Title="Translate and Learn" />
+                  <div className="mt-3 sm:mt-5 sm:flex sm:justify-center ">
+                    <button
+                      className="btn btn-outline btn-xs min-[410px]:btn-sm "
+                      type="reset"
+                    >
+                      Clear Field
+                    </button>
+                  </div>
                   <div>
                     {expressionAnaylsis?.expressionAnswer ? (
                       <div className=" mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base">
@@ -270,6 +278,14 @@ export default function Page() {
                         </div>
                       </div>
                       <SubmitButton Title="Define Word" />
+                      <div className="mt-3 sm:mt-5 sm:flex sm:justify-center ">
+                        <button
+                          className="btn btn-outline btn-xs min-[410px]:btn-sm "
+                          type="reset"
+                        >
+                          Clear Field
+                        </button>
+                      </div>
                     </label>
                   </div>
                 </form>
