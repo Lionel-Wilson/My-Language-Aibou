@@ -2,6 +2,7 @@ export const wellKnownLanguages = [
   "English",
   "Japanese",
   "Mandarin Chinese",
+  "Cantonese",
   "Irish Gaelic",
   "Yoruba",
   "French",
