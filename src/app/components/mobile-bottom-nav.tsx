@@ -18,7 +18,7 @@ export function MobileBottomNav({
   return (
     <>
       {/* bottom nav*/}
-      <div className="btm-nav">
+      <div className="btm-nav lg:hidden">
         <Link href="/">
           <button className="text-primary" type="button">
             <svg
