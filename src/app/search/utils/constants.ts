@@ -6,6 +6,7 @@ export const wellKnownLanguages = [
   "Irish Gaelic",
   "Yoruba",
   "French",
+  "Shona(The Zimbabwean language)",
   "Hindi",
   "Spanish",
   "Standard Arabic",
