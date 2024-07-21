@@ -6,19 +6,21 @@ interface MobileBottomNavProps {
   activeComponent: "SentenceAnalyser" | "Dictionary";
   onShowSentenceAnalyser: () => void;
   onShowDictionary: () => void;
+  setActiveComponent: (component: "SentenceAnalyser" | "Dictionary") => void;
 }
 
 export function MobileBottomNav({
   activeComponent,
   onShowSentenceAnalyser,
   onShowDictionary,
+  setActiveComponent,
 }: MobileBottomNavProps) {
   return (
     <>
       {/* bottom nav*/}
       <div className="btm-nav">
         <Link href="/">
-          <button className="text-primary">
+          <button className="text-primary" type="button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -39,7 +41,11 @@ export function MobileBottomNav({
           className={`text-primary ${
             activeComponent === "SentenceAnalyser" ? "active" : ""
           }`}
-          onClick={onShowSentenceAnalyser}
+          onClick={() => {
+            onShowSentenceAnalyser();
+            setActiveComponent("SentenceAnalyser");
+          }}
+          type="button"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,8 +56,8 @@ export function MobileBottomNav({
             className="size-6"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
             />
           </svg>
@@ -60,7 +66,11 @@ export function MobileBottomNav({
           className={`text-primary ${
             activeComponent === "Dictionary" ? "active" : ""
           }`}
-          onClick={onShowDictionary}
+          onClick={() => {
+            onShowDictionary();
+            setActiveComponent("Dictionary");
+          }}
+          type="button"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,8 +81,8 @@ export function MobileBottomNav({
             className="size-6"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
             />
           </svg>

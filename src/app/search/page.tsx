@@ -4,17 +4,23 @@ import Link from "next/link";
 import { Dictionary } from "./components/dictionary";
 import { SentenceAnalyser } from "./components/sentence-analyser";
 import { MobileBottomNav } from "../components/mobile-bottom-nav";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Page() {
+  const sentenceAnalyserRef = useRef<HTMLDivElement>(null);
+  const dictionaryRef = useRef<HTMLDivElement>(null);
+
   const [activeComponent, setActiveComponent] = useState<
     "SentenceAnalyser" | "Dictionary"
   >("SentenceAnalyser");
 
-  const handleShowSentenceAnalyser = () =>
-    setActiveComponent("SentenceAnalyser");
-  const handleShowDictionary = () => setActiveComponent("Dictionary");
+  const scrollToSentenceAnalyser = () => {
+    sentenceAnalyserRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
+  const scrollToDictionary = () => {
+    dictionaryRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <div className="drawer ">
@@ -61,17 +67,34 @@ export default function Page() {
 
           {/* Page content here */}
 
-          <div className="flex w-full flex-col lg:flex-row">
+          {/*<div className="flex w-full flex-col lg:flex-row">
             <div className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32">
               {activeComponent === "SentenceAnalyser" && <SentenceAnalyser />}
               {activeComponent === "Dictionary" && <Dictionary />}
             </div>
           </div>
+          */}
+          <div className="flex w-full flex-col lg:flex-row">
+            <div
+              className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32"
+              ref={sentenceAnalyserRef}
+            >
+              <SentenceAnalyser />
+            </div>
+            <div className="divider lg:divider-horizontal"></div>
+            <div
+              className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32"
+              ref={dictionaryRef}
+            >
+              <Dictionary />
+            </div>
+          </div>
 
           <MobileBottomNav
-            onShowSentenceAnalyser={handleShowSentenceAnalyser}
-            onShowDictionary={handleShowDictionary}
             activeComponent={activeComponent}
+            onShowSentenceAnalyser={scrollToSentenceAnalyser}
+            onShowDictionary={scrollToDictionary}
+            setActiveComponent={setActiveComponent}
           />
           <Footer></Footer>
         </div>
