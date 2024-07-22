@@ -33,3 +33,11 @@ body {
   }
 }
   */
+
+  #sentence-answer p {
+    margin-bottom: 20px;
+  }
+  #dictionary-answer p {
+    margin-bottom: 20px;
+  }
+  
