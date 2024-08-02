@@ -3,7 +3,6 @@
 export async function analyseExpression(prevState: any, formData: FormData) {
   const rawFormData = {
     sentence: formData.get("sentence"),
-    tier: formData.get("tier"),
     nativeLanguage: formData.get("nativeLanguage"),
   };
 
