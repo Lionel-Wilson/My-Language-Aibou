@@ -79,7 +79,7 @@ export default function Page() {
             </div>
           </div>
           */}
-          <div className="flex w-full flex-col lg:flex-row">
+          <div className="flex w-full flex-col 2xl:flex-row">
             <div
               className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32"
               ref={sentenceAnalyserRef}
