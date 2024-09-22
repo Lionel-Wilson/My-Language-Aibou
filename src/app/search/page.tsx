@@ -33,7 +33,7 @@ export default function Page() {
         <div className="drawer-content flex flex-col ">
           {/* Navbar */}
           <div className="navbar bg-primary text-primary-content w-screen sm:w-full ">
-            <div className="flex-none lg:hidden">
+            <div className="flex-none 2xl:hidden">
               <label
                 htmlFor="my-drawer-3"
                 aria-label="open sidebar"
@@ -57,7 +57,7 @@ export default function Page() {
             <div className="mx-2 flex-1 px-2 text-xl font-bold">
               My Language Aibou
             </div>
-            <div className="hidden flex-none lg:block">
+            <div className="hidden flex-none 2xl:block">
               <ul className="menu menu-horizontal">
                 {/* Navbar menu content here */}
                 <li className="font-bold">
@@ -86,14 +86,14 @@ export default function Page() {
             >
               <SentenceAnalyser />
             </div>
-            <div className="divider lg:divider-horizontal"></div>
+            <div className="divider 2xl:divider-horizontal"></div>
             <div
               className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32"
               ref={dictionaryRef}
             >
               <Dictionary />
             </div>
-            <div className="divider lg:divider-horizontal"></div>
+            <div className="divider 2xl:divider-horizontal"></div>
             <div
               className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32"
               ref={thesaurusRef}

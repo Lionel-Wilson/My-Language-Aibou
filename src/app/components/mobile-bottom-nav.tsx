@@ -22,7 +22,7 @@ export function MobileBottomNav({
   return (
     <>
       {/* bottom nav*/}
-      <div className="btm-nav lg:hidden">
+      <div className="btm-nav 2xl:hidden">
         <Link href="/">
           <button className="text-primary" type="button">
             <svg
