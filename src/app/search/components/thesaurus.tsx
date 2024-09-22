@@ -20,8 +20,8 @@ export function Thesaurus() {
             <label className="form-control">
               <div className="label sm:flex sm:justify-center">
                 <span className="label-text text-xs min-[410px]:text-sm md:text-base">
-                  Find simpler synonyms for a word from your target language,
-                  explained in your native language
+                  Find easier words with the same meaning in your target
+                  language, explained in your own language.
                 </span>
               </div>
               <div className="sm:flex sm:justify-center">
