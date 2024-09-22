@@ -64,3 +64,35 @@ export async function defineWord(prevState: any, formData: FormData) {
     error: null,
   };
 }
+
+export async function getSynonyms(prevState: any, formData: FormData) {
+  const rawFormData = {
+    word: formData.get("word"),
+    nativeLanguage: formData.get("nativeLanguage"),
+  };
+
+  const response = await fetch(`${process.env.API_URL}/search/synonyms`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(rawFormData),
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    var body = await response.json();
+
+    return {
+      wordAnswer: "",
+      error: body.message,
+    };
+  }
+
+  var answer = await response.json();
+
+  return {
+    wordAnswer: answer,
+    error: null,
+  };
+}

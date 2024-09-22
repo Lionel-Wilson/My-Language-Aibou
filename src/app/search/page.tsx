@@ -2,6 +2,7 @@
 import Footer from "../components/footer";
 import Link from "next/link";
 import { Dictionary } from "./components/dictionary";
+import { Thesaurus } from "./components/thesaurus";
 import { SentenceAnalyser } from "./components/sentence-analyser";
 import { MobileBottomNav } from "../components/mobile-bottom-nav";
 import { useRef, useState } from "react";
@@ -9,9 +10,10 @@ import { useRef, useState } from "react";
 export default function Page() {
   const sentenceAnalyserRef = useRef<HTMLDivElement>(null);
   const dictionaryRef = useRef<HTMLDivElement>(null);
+  const thesaurusRef = useRef<HTMLDivElement>(null);
 
   const [activeComponent, setActiveComponent] = useState<
-    "SentenceAnalyser" | "Dictionary"
+    "SentenceAnalyser" | "Dictionary" | "Thesaurus"
   >("SentenceAnalyser");
 
   const scrollToSentenceAnalyser = () => {
@@ -20,6 +22,9 @@ export default function Page() {
 
   const scrollToDictionary = () => {
     dictionaryRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToThesaurus = () => {
+    thesaurusRef.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <>
@@ -88,12 +93,20 @@ export default function Page() {
             >
               <Dictionary />
             </div>
+            <div className="divider lg:divider-horizontal"></div>
+            <div
+              className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32"
+              ref={thesaurusRef}
+            >
+              <Thesaurus />
+            </div>
           </div>
 
           <MobileBottomNav
             activeComponent={activeComponent}
             onShowSentenceAnalyser={scrollToSentenceAnalyser}
             onShowDictionary={scrollToDictionary}
+            onShowThesaurus={scrollToThesaurus}
             setActiveComponent={setActiveComponent}
           />
           <Footer></Footer>

@@ -3,11 +3,11 @@
 import { SubmitButton } from "@/app/components/submit-button";
 import { wellKnownLanguages } from "../utils/constants";
 import { useFormState } from "react-dom";
-import { defineWord } from "../actions";
+import { getSynonyms } from "../actions";
 import { formatExpression } from "../utils/functions";
 
-export function Dictionary() {
-  const [wordDefinition, dictionaryAction] = useFormState(defineWord, {
+export function Thesaurus() {
+  const [wordSynonyms, thesaurusAction] = useFormState(getSynonyms, {
     wordAnswer: "",
     error: null,
   });
@@ -15,12 +15,13 @@ export function Dictionary() {
   return (
     <>
       <div className=" bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md">
-        <form action={dictionaryAction}>
+        <form action={thesaurusAction}>
           <div>
             <label className="form-control">
               <div className="label sm:flex sm:justify-center">
                 <span className="label-text text-xs min-[410px]:text-sm md:text-base">
-                  See a word&apos;s definition in your native language
+                  Find simpler synonyms for a word from your target language,
+                  explained in your native language
                 </span>
               </div>
               <div className="sm:flex sm:justify-center">
@@ -89,24 +90,24 @@ export function Dictionary() {
                   </select>
                 </div>
               </div>
-              <SubmitButton Title="Define Word" />
+              <SubmitButton Title="Generate Synonyms" />
             </label>
           </div>
         </form>
         <div>
-          {wordDefinition?.wordAnswer ? (
+          {wordSynonyms?.wordAnswer ? (
             <div className="mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md">
               <p
                 dangerouslySetInnerHTML={{
-                  __html: formatExpression(wordDefinition.wordAnswer),
+                  __html: formatExpression(wordSynonyms.wordAnswer),
                 }}
               />
             </div>
           ) : null}
 
-          {wordDefinition?.error ? (
+          {wordSynonyms?.error ? (
             <div className="mt-10 text-xs min-[410px]:text-sm text-red-600 flex justify-center">
-              {wordDefinition.error}
+              {wordSynonyms.error}
             </div>
           ) : null}
         </div>
