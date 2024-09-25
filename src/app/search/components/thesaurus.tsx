@@ -96,7 +96,7 @@ export function Thesaurus() {
         </form>
         <div>
           {wordSynonyms?.wordAnswer ? (
-            <div className="mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md">
+            <div className="mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md overflow-scroll overflow-x-hidden h-80">
               <p
                 dangerouslySetInnerHTML={{
                   __html: formatExpression(wordSynonyms.wordAnswer),

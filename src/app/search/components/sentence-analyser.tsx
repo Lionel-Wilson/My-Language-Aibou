@@ -81,7 +81,7 @@ export function SentenceAnalyser() {
             {formattedExpression ? (
               <div
                 id="sentence-answer"
-                className="mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md"
+                className="mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md overflow-scroll overflow-x-hidden h-80"
               >
                 <p>
                   <Markdown>{formattedExpression}</Markdown>
