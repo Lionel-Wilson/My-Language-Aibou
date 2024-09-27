@@ -68,7 +68,8 @@ export async function defineWord(prevState: any, formData: FormData) {
 export async function getSynonyms(prevState: any, formData: FormData) {
   const rawFormData = {
     word: formData.get("word"),
-    nativeLanguage: formData.get("nativeLanguage"),
+    nativeLanguage: "English",
+    //nativeLanguage: formData.get("nativeLanguage"), TO-DO: Uncomment when figure out the correct prompt
   };
 
   const response = await fetch(`${process.env.API_URL}/search/synonyms`, {

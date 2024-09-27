@@ -20,8 +20,7 @@ export function Thesaurus() {
             <label className="form-control">
               <div className="label sm:flex sm:justify-center">
                 <span className="label-text text-xs min-[410px]:text-sm md:text-base">
-                  Find easier words with the same meaning in your target
-                  language, explained in your own language.
+                  Find synonyms for words in your target language.
                 </span>
               </div>
               <div className="sm:flex sm:justify-center">
@@ -72,7 +71,7 @@ export function Thesaurus() {
                             <option value="Basic">Basic</option>
                           </select>
                         </div>*/}
-                <div>
+                {/*<div>
                   <div className="label w-56  sm:w-72">
                     <span className="label-text text-xs min-[410px]:text-sm md:text-base">
                       Select your native language
@@ -88,7 +87,7 @@ export function Thesaurus() {
                       </option>
                     ))}
                   </select>
-                </div>
+                </div>*/}
               </div>
               <SubmitButton Title="Generate Synonyms" />
             </label>
