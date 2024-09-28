@@ -6,8 +6,19 @@ import { Thesaurus } from "./components/thesaurus";
 import { SentenceAnalyser } from "./components/sentence-analyser";
 import { MobileBottomNav } from "../components/mobile-bottom-nav";
 import { useRef, useState } from "react";
+import { wellKnownLanguages } from "./utils/constants";
 
 export default function Page() {
+  const [nativeLanguage, setNativeLanguage] = useState<string>(
+    wellKnownLanguages[0]
+  ); // Default to the first language in the list
+
+  const handleNativeLanguageChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setNativeLanguage(e.target.value);
+  };
+
   const sentenceAnalyserRef = useRef<HTMLDivElement>(null);
   const dictionaryRef = useRef<HTMLDivElement>(null);
   const thesaurusRef = useRef<HTMLDivElement>(null);
@@ -69,9 +80,7 @@ export default function Page() {
               </ul>
             </div>
           </div>
-
           {/* Page content here */}
-
           {/*<div className="flex w-full flex-col lg:flex-row">
             <div className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32">
               {activeComponent === "SentenceAnalyser" && <SentenceAnalyser />}
@@ -79,36 +88,47 @@ export default function Page() {
             </div>
           </div>
           */}
-          <div className="flex w-full flex-col 2xl:flex-row">
+          <div className="flex w-full flex-col md:my-12">
+            <div className="md:pl-[118px] md:mb-12">
+              <div className="label p-0 w-56 sm:w-72 md:w-96 md:mb-1 ">
+                <span className="label-text text-xs min-[410px]:text-sm md:text-2xl md:font-bold">
+                  Select your native language
+                </span>
+              </div>
+              <select
+                name="nativeLanguage"
+                value={nativeLanguage}
+                onChange={handleNativeLanguageChange} // Update state on change
+                className="select select-primary w-full select-xs min-[410px]:select-sm max-w-xs sm:max-w-md md:h-10 rounded"
+              >
+                {wellKnownLanguages.map((lang) => (
+                  <option key={lang} value={lang}>
+                    {lang}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="md:pl-[118px]">
+              <h1 className="text-2xl font-bold">Sentence Analyser</h1>
+            </div>
             <div
-              className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32"
+              className="card bg-base-900 rounded-none grid flex-grow place-items-center mb-16 xl:pt-2 "
               ref={sentenceAnalyserRef}
             >
-              <SentenceAnalyser />
+              <SentenceAnalyser nativeLanguage={nativeLanguage} />
             </div>
-            <div className="divider 2xl:divider-horizontal"></div>
+
+            <div className="md:pl-[118px]">
+              <h1 className="text-2xl font-bold">Word Dictionary</h1>
+            </div>
             <div
-              className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32"
+              className="card bg-base-900 rounded-none grid flex-grow place-items-center xl:pt-2 xl:pb-32"
               ref={dictionaryRef}
             >
-              <Dictionary />
-            </div>
-            <div className="divider 2xl:divider-horizontal"></div>
-            <div
-              className="card bg-base-300 rounded-none grid flex-grow place-items-center  py-28 xl:py-32"
-              ref={thesaurusRef}
-            >
-              <Thesaurus />
+              <Dictionary nativeLanguage={nativeLanguage} />
             </div>
           </div>
 
-          <MobileBottomNav
-            activeComponent={activeComponent}
-            onShowSentenceAnalyser={scrollToSentenceAnalyser}
-            onShowDictionary={scrollToDictionary}
-            onShowThesaurus={scrollToThesaurus}
-            setActiveComponent={setActiveComponent}
-          />
           <Footer></Footer>
         </div>
 

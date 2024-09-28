@@ -3,113 +3,107 @@
 import { SubmitButton } from "@/app/components/submit-button";
 import { wellKnownLanguages } from "../utils/constants";
 import { useFormState } from "react-dom";
-import { defineWord } from "../actions";
+import { defineWord, getSynonyms } from "../actions";
 import { formatExpression } from "../utils/functions";
+import { DictionaryAnswerDiv } from "@/app/components/dictionary-answer-div";
+import { useEffect, useState } from "react";
 
-export function Dictionary() {
+interface DictionaryProps {
+  nativeLanguage: string; // Accept nativeLanguage as a prop
+}
+
+export function Dictionary({ nativeLanguage }: DictionaryProps) {
   const [wordDefinition, dictionaryAction] = useFormState(defineWord, {
     wordAnswer: "",
     error: null,
   });
 
+  const [wordSynonyms, thesaurusAction] = useFormState(getSynonyms, {
+    wordAnswer: "",
+    error: null,
+  });
+
+  const [Definition, setDefinition] = useState<string>("");
+  const [Synonyms, setSynonym] = useState<string>("");
+
+  useEffect(() => {
+    if (wordDefinition?.wordAnswer) {
+      setDefinition(wordDefinition.wordAnswer);
+    }
+    if (wordSynonyms?.wordAnswer) {
+      setSynonym(wordSynonyms.wordAnswer);
+    }
+  }, [wordDefinition?.wordAnswer, wordSynonyms?.wordAnswer]);
+
+  const handleClear = () => {
+    setDefinition("");
+    setSynonym("");
+  };
+
   return (
     <>
-      <div className=" bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md">
-        <form action={dictionaryAction}>
+      <div className="bg-base-300 border-base-300 rounded p-1 w-34 sm:w-94 md:w-[90rem] md:h-[28rem]">
+        <form
+          action={(formData) => {
+            formData.append("nativeLanguage", nativeLanguage); // Append nativeLanguage to formData
+            dictionaryAction(formData);
+            thesaurusAction(formData);
+          }}
+        >
           <div>
             <label className="form-control">
-              <div className="label sm:flex sm:justify-center">
-                <span className="label-text text-xs min-[410px]:text-sm md:text-base">
-                  See a word&apos;s definition in your native language
+              <div className="pl-9 label sm:flex  ">
+                <span className="label-text text-xs font-bold min-[410px]:text-sm md:text-lg ">
+                  Search for a word's definition
                 </span>
               </div>
-              <div className="sm:flex sm:justify-center">
-                <label className="input input-bordered flex items-center gap-2 input-xs min-[410px]:input-sm 2xl:input-md w-full max-w-xs md:max-w-md">
-                  <input
-                    type="text"
-                    name="word"
-                    className="grow "
-                    placeholder="Search"
-                  />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    className="h-4 w-4 opacity-70"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                      clipRule="evenodd"
+              <div>
+                <div className="pl-9 mb-3 flex flex-row">
+                  <label className="input input-bordered input-md w-full max-w-xs flex items-center gap-2">
+                    <input
+                      type="text"
+                      name="word"
+                      className="grow "
+                      placeholder="Example - バカ"
                     />
-                  </svg>
-                </label>
-              </div>
-              <div className="mt-3 sm:mt-5 sm:flex sm:justify-center ">
-                <button
-                  className="btn btn-outline btn-xs min-[410px]:btn-sm "
-                  type="reset"
-                >
-                  Clear Field
-                </button>
-              </div>
-
-              <div className="flex justify-items-start sm:justify-center flex-wrap mt-2 sm:mt-5">
-                {/*<div>
-                          <div className="label w-56  sm:w-72">
-                            <span className="label-text text-xs min-[410px]:text-sm md:text-base ">
-                              Select tier (Determines detail)
-                            </span>
-                          </div>
-                          <select
-                            name="tier"
-                            className="select select-primary select-xs min-[410px]:select-sm  w-full max-w-xs"
-                          >
-                            <option defaultValue="true" value="Premium">
-                              Premium
-                            </option>
-                            <option value="Basic">Basic</option>
-                          </select>
-                        </div>*/}
-                <div>
-                  <div className="label w-56  sm:w-72">
-                    <span className="label-text text-xs min-[410px]:text-sm md:text-base">
-                      Select your native language
-                    </span>
-                  </div>
-                  <select
-                    name="nativeLanguage"
-                    className="select select-primary select-xs min-[410px]:select-sm w-full max-w-xs"
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="h-4 w-4 opacity-70"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </label>
+                  <button
+                    className="btn btn-outline btn-xs ml-3 mt-2 rounded min-[410px]:btn-sm "
+                    type="reset"
+                    onClick={handleClear}
                   >
-                    {wellKnownLanguages.map((lang) => (
-                      <option key={lang} value={lang}>
-                        {lang}
-                      </option>
-                    ))}
-                  </select>
+                    Clear
+                  </button>
+                </div>
+                <div>
+                  <DictionaryAnswerDiv
+                    wordDefinition={Definition}
+                    wordSynonyms={Synonyms}
+                  />
                 </div>
               </div>
-              <SubmitButton Title="Define Word" />
             </label>
+            <div className="mt-2 sm:flex md:pl-7">
+              {wordDefinition?.error ? (
+                <div className="text-base text-red-600 flex justify-center md:mt-1 md:ml-2">
+                  {wordDefinition.error}
+                </div>
+              ) : null}
+            </div>
           </div>
         </form>
-        <div>
-          {wordDefinition?.wordAnswer ? (
-            <div className="mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md overflow-scroll overflow-x-hidden h-80">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: formatExpression(wordDefinition.wordAnswer),
-                }}
-              />
-            </div>
-          ) : null}
-
-          {wordDefinition?.error ? (
-            <div className="mt-10 text-xs min-[410px]:text-sm text-red-600 flex justify-center">
-              {wordDefinition.error}
-            </div>
-          ) : null}
-        </div>
       </div>
     </>
   );

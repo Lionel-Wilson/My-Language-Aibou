@@ -2,14 +2,21 @@
 
 import { SubmitButton } from "@/app/components/submit-button";
 import { wellKnownLanguages } from "../utils/constants";
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 import { analyseExpression } from "../actions";
 import { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import Markdown from "react-markdown";
 import { formatExpression } from "../utils/functions";
+import { SA_Div } from "@/app/components/sentence-analyser-answer-div";
 
-export function SentenceAnalyser() {
+interface SentenceAnalyserProps {
+  nativeLanguage: string; // Accept nativeLanguage as a prop
+}
+
+export function SentenceAnalyser({ nativeLanguage }: SentenceAnalyserProps) {
+  const { pending } = useFormStatus(); // Use form status to track pending state
+
   const [expressionAnaylsis, expressionAnalysisAction] = useFormState(
     analyseExpression,
     {
@@ -23,76 +30,56 @@ export function SentenceAnalyser() {
   useEffect(() => {
     if (expressionAnaylsis?.expressionAnswer) {
       setFormattedExpression(expressionAnaylsis.expressionAnswer);
-      console.log(expressionAnaylsis.expressionAnswer);
+      //console.log(expressionAnaylsis.expressionAnswer);
     }
   }, [expressionAnaylsis?.expressionAnswer]);
 
+  const handleClear = () => {
+    setFormattedExpression(""); // Clear formattedExpression when reset button is clicked
+  };
+
   return (
     <>
-      <div className="bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md">
-        <form action={expressionAnalysisAction}>
+      <div className="bg-base-300 border-base-300 rounded p-1 w-34 sm:w-94 md:w-[90rem] md:h-96">
+        <form
+          action={(formData) => {
+            formData.append("nativeLanguage", nativeLanguage); // Append nativeLanguage to formData
+            expressionAnalysisAction(formData);
+          }}
+        >
           <div>
             <label className="form-control">
-              <div className="label sm:flex sm:justify-center">
-                <span className="label-text text-xs min-[410px]:text-sm md:text-base">
-                  Explore the Meaning of a Sentence from Any Language
+              <div className="label sm:flex  md:ml-6">
+                <span className="label-text text-xs font-bold min-[410px]:text-sm md:text-lg ">
+                  Paste the text you would like to understand below.
                 </span>
               </div>
-              <div className="sm:flex sm:justify-center">
+              <div className="sm:flex sm:justify-center ">
                 <textarea
                   name="sentence"
-                  className="textarea textarea-bordered textarea-xs min-[410px]:textarea-md w-full max-w-xs md:max-w-md sm:h-24"
-                  placeholder="Paste your sentence here..."
+                  className="textarea textarea-bordered textarea-xs min-[410px]:textarea-md sm:h-24 md:h-64 md:mr-5 md:w-[680px] md:text-base"
+                  placeholder="Example - バカが 誰がてめえの言葉なんか信用するか                                                                                           Max 150 characters"
                 ></textarea>
+                <SA_Div formattedExpression={formattedExpression} />
               </div>
             </label>
-            <div className="mt-3 sm:mt-5 sm:flex sm:justify-center">
+            <div className="mt-3 sm:mt-5 sm:flex md:pl-7">
+              <SubmitButton Title="Generate Explanation" />
+
               <button
-                className="btn btn-outline btn-xs min-[410px]:btn-sm"
+                className="btn btn-outline btn-xs rounded min-[410px]:btn-sm "
                 type="reset"
+                onClick={handleClear}
               >
-                Clear Field
+                Clear
               </button>
-            </div>
-          </div>
 
-          <div className="flex flex-wrap justify-items-start sm:flex sm:justify-center mt-2">
-            <div>
-              <div className="label w-56 sm:w-72">
-                <span className="label-text text-xs min-[410px]:text-sm md:text-base">
-                  Select your native language
-                </span>
-              </div>
-              <select
-                name="nativeLanguage"
-                className="select select-primary w-full select-xs min-[410px]:select-sm max-w-xs sm:max-w-md"
-              >
-                {wellKnownLanguages.map((lang) => (
-                  <option key={lang} value={lang}>
-                    {lang}
-                  </option>
-                ))}
-              </select>
+              {expressionAnaylsis?.error ? (
+                <div className="text-base text-red-600 flex justify-center md:mt-1 md:ml-2">
+                  {expressionAnaylsis.error}
+                </div>
+              ) : null}
             </div>
-          </div>
-          <SubmitButton Title="Translate and Learn" />
-
-          <div>
-            {formattedExpression ? (
-              <div
-                id="sentence-answer"
-                className="mt-5 sm:mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md overflow-scroll overflow-x-hidden h-80"
-              >
-                <p>
-                  <Markdown>{formattedExpression}</Markdown>
-                </p>
-              </div>
-            ) : null}
-            {expressionAnaylsis?.error ? (
-              <div className="mt-5 sm:mt-10 text-xs min-[410px]:text-sm text-red-600 flex justify-center">
-                {expressionAnaylsis.error}
-              </div>
-            ) : null}
           </div>
         </form>
       </div>
