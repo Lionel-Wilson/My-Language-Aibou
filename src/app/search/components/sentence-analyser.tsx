@@ -49,7 +49,7 @@ export function SentenceAnalyser({ nativeLanguage }: SentenceAnalyserProps) {
         >
           <div id="form-container">
             <label className="form-control">
-              <div className="label md:ml-1">
+              <div className="label md:ml-1 2xl:pl-16">
                 <span className="label-text text-xs font-bold md:text-lg">
                   Paste the sentence you would like to understand
                 </span>
@@ -98,7 +98,7 @@ export function SentenceAnalyser({ nativeLanguage }: SentenceAnalyserProps) {
               </div>
             </label>
 
-            <div className="mt-3 hidden sm:flex md:mt-0 md:block md:pl-1">
+            <div className="mt-3 hidden sm:flex md:mt-0 md:block md:pl-1 2xl:pl-16">
               {expressionAnaylsis?.error ? (
                 <div className="text-base text-red-600 md:mb-1 md:ml-2">
                   {expressionAnaylsis.error}

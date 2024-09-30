@@ -92,12 +92,12 @@ export default function Page() {
               id="select-native-language-container"
               className="md:mb-6 md:pl-1 lg:mb-12"
             >
-              <div className="label mx-2 sm:w-72 md:mb-1 md:min-w-96">
+              <div className="label mx-2 sm:w-72 md:mb-1 md:min-w-96 2xl:flex 2xl:w-full 2xl:justify-center">
                 <span className="label-text text-base font-bold min-[390px]:text-lg md:text-2xl">
                   Select your native language
                 </span>
               </div>
-              <div className="ml-3">
+              <div className="ml-3 2xl:flex 2xl:justify-center">
                 <select
                   name="nativeLanguage"
                   value={nativeLanguage}
@@ -115,7 +115,7 @@ export default function Page() {
 
             <div id="sentence-analyser-containter" className="hidden md:block">
               <div className="md:pl-3">
-                <h1 className="hidden text-2xl font-bold md:block">
+                <h1 className="hidden text-2xl font-bold md:block 2xl:flex 2xl:justify-center">
                   Sentence Analyser
                 </h1>
               </div>
@@ -126,7 +126,7 @@ export default function Page() {
 
             <div id="dictionary-containter" className="hidden md:block">
               <div className="md:pl-3">
-                <h1 className="hidden text-2xl font-bold md:block">
+                <h1 className="hidden text-2xl font-bold md:block 2xl:flex 2xl:justify-center">
                   Word Dictionary
                 </h1>
               </div>
