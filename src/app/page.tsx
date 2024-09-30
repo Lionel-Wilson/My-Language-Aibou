@@ -1,15 +1,14 @@
 import Link from "next/link";
 import Footer from "./components/footer";
-import Navbar from "./components/navbar";
 
 export default function Home() {
   return (
     <>
-      <div className="drawer ">
+      <div className="drawer">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col ">
+        <div className="drawer-content flex flex-col">
           {/* Navbar */}
-          <div className="navbar bg-primary text-primary-content w-full ">
+          <div className="navbar w-full bg-primary text-primary-content">
             <div className="flex-none lg:hidden">
               <label
                 htmlFor="my-drawer-3"
@@ -49,7 +48,7 @@ export default function Home() {
 
           {/* Page content here */}
 
-          <div className="hero bg-base-200 min-h-screen">
+          <div className="hero min-h-screen bg-base-200">
             <div className="hero-content text-center">
               <div className="max-w-md">
                 <h1 className="text-5xl font-bold">
@@ -66,7 +65,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero bg-base-200 min-h-screen">
+          <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
               <img
                 src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
@@ -88,7 +87,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero bg-base-200 min-h-screen">
+          <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
               <img
                 src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
@@ -119,7 +118,7 @@ export default function Home() {
             }}
           >
             <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-neutral-content text-center">
+            <div className="hero-content text-center text-neutral-content">
               <div className="max-w-md">
                 <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
                 <p className="mb-5">
@@ -140,7 +139,7 @@ export default function Home() {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-primary text-primary-content min-h-full w-80 p-4">
+          <ul className="menu min-h-full w-80 bg-primary p-4 text-primary-content">
             {/* Sidebar content here */}
             <li>
               <Link href="/">Home</Link>

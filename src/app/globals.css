@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import 'material-symbols';
 /*
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -35,9 +35,9 @@ body {
   */
 
   #sentence-answer p {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   #dictionary-answer p {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
