@@ -14,22 +14,22 @@ export function Thesaurus() {
 
   return (
     <>
-      <div className=" bg-base-100 border-base-300 rounded-box p-6 max-w-xs sm:max-w-sm md:max-w-md">
+      <div className="max-w-xs rounded-box border-base-300 bg-base-100 p-6 sm:max-w-sm md:max-w-md">
         <form action={thesaurusAction}>
           <div>
             <label className="form-control">
               <div className="label sm:flex sm:justify-center">
-                <span className="label-text text-xs min-[410px]:text-sm md:text-base">
+                <span className="label-text text-xs min-[390px]:text-sm md:text-base">
                   Find easier words with the same meaning in your target
                   language, explained in your own language.
                 </span>
               </div>
               <div className="sm:flex sm:justify-center">
-                <label className="input input-bordered flex items-center gap-2 input-xs min-[410px]:input-sm 2xl:input-md w-full max-w-xs md:max-w-md">
+                <label className="input input-xs input-bordered flex w-full max-w-xs items-center gap-2 min-[390px]:input-sm 2xl:input-md md:max-w-md">
                   <input
                     type="text"
                     name="word"
-                    className="grow "
+                    className="grow"
                     placeholder="Search"
                   />
                   <svg
@@ -46,25 +46,25 @@ export function Thesaurus() {
                   </svg>
                 </label>
               </div>
-              <div className="mt-3 sm:mt-5 sm:flex sm:justify-center ">
+              <div className="mt-3 sm:mt-5 sm:flex sm:justify-center">
                 <button
-                  className="btn btn-outline btn-xs min-[410px]:btn-sm "
+                  className="btn btn-outline btn-xs min-[390px]:btn-sm"
                   type="reset"
                 >
                   Clear Field
                 </button>
               </div>
 
-              <div className="flex justify-items-start sm:justify-center flex-wrap mt-2 sm:mt-5">
+              <div className="mt-2 flex flex-wrap justify-items-start sm:mt-5 sm:justify-center">
                 {/*<div>
                           <div className="label w-56  sm:w-72">
-                            <span className="label-text text-xs min-[410px]:text-sm md:text-base ">
+                            <span className="label-text text-xs min-[390px]:text-sm md:text-base ">
                               Select tier (Determines detail)
                             </span>
                           </div>
                           <select
                             name="tier"
-                            className="select select-primary select-xs min-[410px]:select-sm  w-full max-w-xs"
+                            className="select select-primary select-xs min-[390px]:select-sm  w-full max-w-xs"
                           >
                             <option defaultValue="true" value="Premium">
                               Premium
@@ -73,14 +73,14 @@ export function Thesaurus() {
                           </select>
                         </div>*/}
                 <div>
-                  <div className="label w-56  sm:w-72">
-                    <span className="label-text text-xs min-[410px]:text-sm md:text-base">
+                  <div className="label w-56 sm:w-72">
+                    <span className="label-text text-xs min-[390px]:text-sm md:text-base">
                       Select your native language
                     </span>
                   </div>
                   <select
                     name="nativeLanguage"
-                    className="select select-primary select-xs min-[410px]:select-sm w-full max-w-xs"
+                    className="select select-primary select-xs w-full max-w-xs min-[390px]:select-sm"
                   >
                     {wellKnownLanguages.map((lang) => (
                       <option key={lang} value={lang}>
@@ -96,7 +96,7 @@ export function Thesaurus() {
         </form>
         <div>
           {wordSynonyms?.wordAnswer ? (
-            <div className="mt-10 text-xs min-[410px]:text-sm md:text-base bg-blue-100 p-2 rounded-md overflow-scroll overflow-x-hidden h-80">
+            <div className="mt-10 h-80 overflow-scroll overflow-x-hidden rounded-md bg-blue-100 p-2 text-xs min-[390px]:text-sm md:text-base">
               <p
                 dangerouslySetInnerHTML={{
                   __html: formatExpression(wordSynonyms.wordAnswer),
@@ -106,7 +106,7 @@ export function Thesaurus() {
           ) : null}
 
           {wordSynonyms?.error ? (
-            <div className="mt-10 text-xs min-[410px]:text-sm text-red-600 flex justify-center">
+            <div className="mt-10 flex justify-center text-xs text-red-600 min-[390px]:text-sm">
               {wordSynonyms.error}
             </div>
           ) : null}

@@ -22,7 +22,7 @@ export function SentenceAnalyser({ nativeLanguage }: SentenceAnalyserProps) {
     {
       expressionAnswer: "",
       error: null,
-    }
+    },
   );
 
   const [formattedExpression, setFormattedExpression] = useState<string>("");
@@ -40,45 +40,79 @@ export function SentenceAnalyser({ nativeLanguage }: SentenceAnalyserProps) {
 
   return (
     <>
-      <div className="bg-base-300 border-base-300 rounded p-1 w-34 sm:w-94 md:w-[90rem] md:h-96">
+      <div className="w-screen border-base-300 bg-base-300 p-1 pb-14 md:h-96 md:max-w-screen-2xl md:rounded">
         <form
           action={(formData) => {
             formData.append("nativeLanguage", nativeLanguage); // Append nativeLanguage to formData
             expressionAnalysisAction(formData);
           }}
         >
-          <div>
+          <div id="form-container">
             <label className="form-control">
-              <div className="label sm:flex  md:ml-6">
-                <span className="label-text text-xs font-bold min-[410px]:text-sm md:text-lg ">
-                  Paste the text you would like to understand below.
+              <div className="label md:ml-1">
+                <span className="label-text text-xs font-bold md:text-lg">
+                  Paste the sentence you would like to understand
                 </span>
               </div>
-              <div className="sm:flex sm:justify-center ">
+
+              <div className="mb-2 flex pl-1 sm:justify-center md:flex md:justify-evenly">
                 <textarea
                   name="sentence"
-                  className="textarea textarea-bordered textarea-xs min-[410px]:textarea-md sm:h-24 md:h-64 md:mr-5 md:w-[680px] md:text-base"
-                  placeholder="Example - バカが 誰がてめえの言葉なんか信用するか                                                                                           Max 150 characters"
+                  className="textarea textarea-bordered textarea-xs h-16 min-w-[19rem] flex-grow min-[390px]:min-w-[23rem] sm:h-20 md:mr-5 md:h-64 md:w-[41.5rem] md:flex-grow-0 md:text-sm lg:text-base"
+                  placeholder="Example - バカが 誰がてめえの言葉なんか信用するか                                                                                           Max 100 characters"
                 ></textarea>
+
+                <div
+                  id="ipad-and-above-sentence-analyser-answer-container"
+                  className="hidden md:block"
+                >
+                  <SA_Div formattedExpression={formattedExpression} />
+                </div>
+
+                {expressionAnaylsis?.error ? (
+                  <div className="mb-2 text-xs font-bold text-red-600 md:ml-2 md:mt-1 md:hidden md:text-base">
+                    {expressionAnaylsis.error}
+                  </div>
+                ) : null}
+              </div>
+
+              <div
+                id="mobile-sentence-analyser-button-container"
+                className="mb-2 flex pl-1 md:hidden"
+              >
+                <SubmitButton Title="Generate Explanation" />
+                <button
+                  className="btn btn-outline btn-xs ml-4 rounded min-[390px]:btn-sm"
+                  type="reset"
+                  onClick={handleClear}
+                >
+                  Clear
+                </button>
+              </div>
+
+              <div
+                id="mobile-sentence-analyser-answer-container"
+                className="md:hidden"
+              >
                 <SA_Div formattedExpression={formattedExpression} />
               </div>
             </label>
-            <div className="mt-3 sm:mt-5 sm:flex md:pl-7">
+
+            <div className="mt-3 hidden sm:flex md:mt-0 md:block md:pl-1">
+              {expressionAnaylsis?.error ? (
+                <div className="text-base text-red-600 md:mb-1 md:ml-2">
+                  {expressionAnaylsis.error}
+                </div>
+              ) : null}
               <SubmitButton Title="Generate Explanation" />
 
               <button
-                className="btn btn-outline btn-xs rounded min-[410px]:btn-sm "
+                className="btn btn-outline btn-xs rounded min-[390px]:btn-sm md:ml-4"
                 type="reset"
                 onClick={handleClear}
               >
                 Clear
               </button>
-
-              {expressionAnaylsis?.error ? (
-                <div className="text-base text-red-600 flex justify-center md:mt-1 md:ml-2">
-                  {expressionAnaylsis.error}
-                </div>
-              ) : null}
             </div>
           </div>
         </form>
