@@ -24,7 +24,7 @@ export function DictionaryAnswerDiv(props: {
       ) : !pending && !props.wordDefinition ? (
         <div className="sm:flex sm:justify-center md:flex md:justify-evenly">
           <div className="textarea textarea-bordered textarea-xs mb-2 h-44 min-w-[19rem] overflow-scroll overflow-x-hidden min-[390px]:h-52 min-[390px]:min-w-[23rem] sm:h-24 md:mr-5 md:h-72 md:w-[41.5rem]">
-            <p className="text-neutral-400 md:text-sm">
+            <p className="text-neutral-400 md:text-sm lg:text-base">
               The word &apos;バカ&apos; (baka) in Japanese is a colloquial term
               that means &quot;fool&quot; or &quot;idiot.&quot; It is often used
               to describe someone who is acting foolishly or making poor
@@ -46,7 +46,7 @@ export function DictionaryAnswerDiv(props: {
             </p>
           </div>
           <div className="textarea textarea-bordered textarea-xs h-44 min-w-[19rem] overflow-scroll overflow-x-hidden min-[390px]:h-44 min-[390px]:min-w-[23rem] sm:h-24 md:h-72 md:w-[41.5rem]">
-            <p className="text-neutral-400 md:text-sm">
+            <p className="text-neutral-400 md:text-sm lg:text-base">
               Here are some simple synonyms for the Japanese word
               &apos;バカ&apos; (baka), which means &quot;fool&quot; or
               &quot;idiot&quot;:

@@ -52,7 +52,7 @@ export function Dictionary({ nativeLanguage }: DictionaryProps) {
         >
           <div>
             <label className="form-control">
-              <div className="label pl-2 sm:flex lg:pl-9">
+              <div className="label pl-2 sm:flex lg:pl-9 2xl:pl-16">
                 <span className="label-text text-xs font-bold min-[390px]:text-sm md:text-lg">
                   Search for a word&apos;s definition
                 </span>
@@ -60,7 +60,7 @@ export function Dictionary({ nativeLanguage }: DictionaryProps) {
 
               <div
                 id="search-bar-container"
-                className="mb-3 flex flex-row pl-1"
+                className="mb-3 flex flex-row pl-1 2xl:max-w-[91rem] 2xl:pl-16"
               >
                 <label className="input input-xs input-bordered flex w-64 grow items-center gap-2 min-[390px]:input-sm md:input-md">
                   <input
