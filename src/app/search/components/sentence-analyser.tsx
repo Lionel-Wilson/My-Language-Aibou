@@ -68,13 +68,12 @@ export function SentenceAnalyser({ nativeLanguage }: SentenceAnalyserProps) {
                 >
                   <SA_Div formattedExpression={formattedExpression} />
                 </div>
-
-                {expressionAnaylsis?.error ? (
-                  <div className="mb-2 text-xs font-bold text-red-600 md:ml-2 md:mt-1 md:hidden md:text-base">
-                    {expressionAnaylsis.error}
-                  </div>
-                ) : null}
               </div>
+              {expressionAnaylsis?.error ? (
+                <div className="mb-2 pl-1 text-xs font-bold text-red-600 md:ml-2 md:mt-1 md:hidden md:text-base">
+                  {expressionAnaylsis.error}
+                </div>
+              ) : null}
 
               <div
                 id="mobile-sentence-analyser-button-container"
