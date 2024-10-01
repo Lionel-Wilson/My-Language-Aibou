@@ -58,13 +58,13 @@ export function SentenceAnalyser({ nativeLanguage }: SentenceAnalyserProps) {
               <div className="mb-2 flex pl-1 sm:justify-center md:flex md:justify-evenly">
                 <textarea
                   name="sentence"
-                  className="textarea textarea-bordered textarea-xs h-16 min-w-[19rem] flex-grow min-[390px]:min-w-[23rem] sm:h-20 md:mr-5 md:h-64 md:w-[41.5rem] md:flex-grow-0 md:text-sm lg:text-base"
+                  className="textarea textarea-bordered textarea-xs h-16 min-w-[19rem] flex-grow min-[390px]:min-w-[23rem] sm:h-20 md:mr-5 md:h-64 md:w-1/2 md:flex-grow-0 md:text-sm lg:text-base 2xl:w-[41.5rem]"
                   placeholder="Example - バカが 誰がてめえの言葉なんか信用するか                                                                                           Max 100 characters"
                 ></textarea>
 
                 <div
                   id="ipad-and-above-sentence-analyser-answer-container"
-                  className="hidden md:block"
+                  className="hidden md:block md:w-1/2 md:max-w-[41.5rem]"
                 >
                   <SA_Div formattedExpression={formattedExpression} />
                 </div>

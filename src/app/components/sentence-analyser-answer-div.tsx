@@ -9,11 +9,11 @@ export function SA_Div(props: { formattedExpression: string }) {
   return (
     <>
       {pending ? (
-        <div className="textarea textarea-bordered textarea-xs flex min-h-52 min-w-[19rem] items-center justify-center min-[390px]:h-80 min-[390px]:max-h-96 min-[390px]:min-w-[23rem] min-[390px]:max-w-2xl sm:h-24 md:h-64 md:max-w-[41.5rem]">
+        <div className="textarea textarea-bordered textarea-xs flex min-h-52 min-w-[19rem] items-center justify-center min-[390px]:h-80 min-[390px]:max-h-96 min-[390px]:min-w-[23rem] sm:h-24 md:h-64 md:max-w-[41.5rem]">
           <span className="loading loading-ring loading-lg text-primary"></span>
         </div>
       ) : !pending && !props.formattedExpression ? (
-        <div className="textarea textarea-bordered textarea-xs min-h-52 min-w-[19rem] overflow-scroll overflow-x-hidden min-[390px]:h-80 min-[390px]:max-h-96 min-[390px]:min-w-[23rem] min-[390px]:max-w-2xl sm:h-24 sm:max-w-96 md:h-64 md:max-w-[41.5rem]">
+        <div className="textarea textarea-bordered textarea-xs min-h-52 min-w-[19rem] flex-grow overflow-scroll overflow-x-hidden min-[390px]:h-80 min-[390px]:max-h-96 min-[390px]:min-w-[23rem] sm:h-24 md:h-64 md:max-w-[41.5rem]">
           <p className="text-neutral-400 md:text-sm lg:text-base">
             The sentence &apos;バカが 誰がてめえの言葉なんか信用するか&apos; is
             a Japanese expression that can be translated to English as &apos;You
@@ -68,7 +68,7 @@ export function SA_Div(props: { formattedExpression: string }) {
       ) : (
         <div
           id="sentence-answer"
-          className="textarea textarea-bordered textarea-xs min-h-52 min-w-[19rem] overflow-scroll overflow-x-hidden min-[390px]:h-80 min-[390px]:max-h-96 min-[390px]:min-w-[23rem] min-[390px]:max-w-2xl sm:h-24 md:h-64 md:max-w-[41.5rem]"
+          className="textarea textarea-bordered textarea-xs min-h-52 min-w-[19rem] overflow-scroll overflow-x-hidden min-[390px]:h-80 min-[390px]:max-h-96 min-[390px]:min-w-[23rem] sm:h-24 md:h-64 md:max-w-[41.5rem]"
         >
           <p className="md:text-sm lg:text-base">
             <Markdown>{props.formattedExpression}</Markdown>
