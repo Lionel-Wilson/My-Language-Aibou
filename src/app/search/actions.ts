@@ -20,7 +20,7 @@ export async function analyseExpression(prevState: any, formData: FormData) {
 
     return {
       expressionAnswer: "",
-      error: body.message,
+      error: body,
     };
   }
 
@@ -53,7 +53,7 @@ export async function defineWord(prevState: any, formData: FormData) {
 
     return {
       wordAnswer: "",
-      error: body.message,
+      error: body,
     };
   }
 
@@ -86,7 +86,7 @@ export async function getSynonyms(prevState: any, formData: FormData) {
 
     return {
       wordAnswer: "",
-      error: body.message,
+      error: body,
     };
   }
 
