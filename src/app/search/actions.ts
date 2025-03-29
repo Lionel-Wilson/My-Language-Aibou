@@ -6,7 +6,7 @@ export async function analyseExpression(prevState: any, formData: FormData) {
     nativeLanguage: formData.get("nativeLanguage"),
   };
 
-  const response = await fetch(`${process.env.API_URL}/search/sentence`, {
+  const response = await fetch(`${process.env.API_URL}/sentence/explanation`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export async function defineWord(prevState: any, formData: FormData) {
     nativeLanguage: formData.get("nativeLanguage"),
   };
 
-  const response = await fetch(`${process.env.API_URL}/search/word`, {
+  const response = await fetch(`${process.env.API_URL}/word/definition`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -72,7 +72,7 @@ export async function getSynonyms(prevState: any, formData: FormData) {
     //nativeLanguage: formData.get("nativeLanguage"), TO-DO: Uncomment when figure out the correct prompt
   };
 
-  const response = await fetch(`${process.env.API_URL}/search/synonyms`, {
+  const response = await fetch(`${process.env.API_URL}/word/synonyms`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
