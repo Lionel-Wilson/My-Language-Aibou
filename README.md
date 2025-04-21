@@ -1,40 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Language Aibou Web
 
-## Getting Started
+> Created a language studying tool that utilises OpenAi's API. 
 
-1. Run the following command:
-```bash
-npm install
-```
-2. Run the development server:
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+* [Screenshots](#screenshots)
+* [Project Status](#project-status)
+* [Acknowledgements](#acknowledgements)
+* [Contact](#contact)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## General Information
+- This is a web application that allows users to paste in a sentence in a foreign language they're learning and get an explantion of the grammar and words used in their native language. 
+- Contributed to designing, building, testing and maintaining the app.
+- Originally made this to increase the efficiency of my personal Japanese language study. Rather than contstanly writing out prompts to ask Chat GPT to explaining the meaning of a sentence, I made a wrapper that did this for me.
+- It also includes a dictionary that provides example sentences and synonyms of the word provided.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
+- Next.js
+- Typescript
+- Golang
+- OpenAI APIs
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
+- A 'Sentence Analyser' that provides an explanation of the provided sentences meaning. Breaks down the meaning of each word and grammar structure used in the sentence and shows why it means what it means.
+- A dictionary that defines, provides example sentences and synonyms of the word provided.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Screenshots
 
-## Learn More
+![image](https://github.com/user-attachments/assets/a847507a-26f2-4d67-ac9e-8492288e67ea)
 
-To learn more about Next.js, take a look at the following resources:
+![image](https://github.com/user-attachments/assets/2484ef7d-eb54-4d82-8404-b0a7cebe37ad)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Status
+Project is: _Complete_
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Acknowledgements
+- I would like to thank first and foremost Jesus Christ my Lord and saviour for
+getting me this far and keeping me at peace.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact
+Created by [Lionel Wilson](https://github.com/Lionel-Wilson) - feel free to contact me!
