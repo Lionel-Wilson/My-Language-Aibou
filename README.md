@@ -23,7 +23,7 @@
 
 ## Features
 - A 'Sentence Analyser' that provides an explanation of the provided sentences meaning. Breaks down the meaning of each word and grammar structure used in the sentence and shows why it means what it means.
-- A dictionary that defines, provides example sentences and synonyms of the word provided.
+- A 'Wordi Dictionary' that defines, provides example sentences and synonyms of the word provided.
 
 ## Screenshots
 
