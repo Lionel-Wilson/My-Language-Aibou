@@ -12,10 +12,8 @@
 * [Contact](#contact)
 
 ## General Information
-- This is a web application that allows users to paste in a sentence in a foreign language they're learning and get an explantion of the grammar and words used in their native language. 
-- Contributed to designing, building, testing and maintaining the app.
-- Originally made this to increase the efficiency of my personal Japanese language study. Rather than contstanly writing out prompts to ask Chat GPT to explaining the meaning of a sentence, I made a wrapper that did this for me.
-- It also includes a dictionary that provides example sentences and synonyms of the word provided.
+- This is a mobile application that allows users to paste in a sentence in a foreign language they're learning and get an explantion of the grammar and words used in their native language. 
+- Originally made this to increase the efficiency of my personal Japanese language study. So rather than constantly writing out prompts to Chat GPT asking it to explain the meaning of a sentence, I made a wrapper that did this for me.
 
 ## Technologies Used
 - Next.js
